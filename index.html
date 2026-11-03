@@ -1,0 +1,1949 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FLORA Avocats</title>
+<meta name="description" content="Projet étudiant fictif (LAB EFB 2026) : un cabinet qui repère les entreprises en difficulté à reprendre et accompagne le repreneur jusqu'au tribunal.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+</head>
+<body>
+<style>
+/* Charte FLORA Avocats : IBM Plex Sans, bleu marine, gris clair, vert d'action.
+   Layout : colonne éditoriale sur fond clair ; un seul bandeau marine texturé porte le formulaire. */
+:root {
+  --paper: #F4F5F7;
+  --ink: #14213D;
+  --ink-soft: #3D4A63;
+  --muted: #5A6478;
+  --line: #DDE1E8;
+  --surface: #FFFFFF;
+  --field: #FFFFFF;
+  --field-line: #C5CBD6;
+  --chip-line: #9AA3B5;
+  --navy: #14213D;
+  --navy-ink: #FFFFFF;
+  --accent: #1E7048;
+  --accent-soft: #E2F0E8;
+  --band: #14213D;
+  --band-ink: #FFFFFF;
+  --band-muted: #C9D3E6;
+  --btn: #1E7048;
+  --btn-ink: #FFFFFF;
+  --error: #8A3B12;
+  --logo-filter: brightness(0);
+  --bezel: #0B1324;
+  --scr-bg: #F4F5F7;
+
+  --serif: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius: 10px;
+  --wrap: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0D1424; --ink: #E9EDF5; --ink-soft: #C3CBDA; --muted: #8E98AD; --line: #24304A;
+    --surface: #152039; --field: #0D1424; --field-line: #34415E; --chip-line: #4A587A;
+    --navy: #C9D3E6; --navy-ink: #14213D;
+    --accent: #5FBF8C; --accent-soft: #17311F;
+    --band: #0A1121; --band-ink: #FFFFFF; --band-muted: #A9B6CF;
+    --btn: #23845A; --btn-ink: #FFFFFF; --error: #F0956B; --logo-filter: brightness(0) invert(1);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0D1424; --ink: #E9EDF5; --ink-soft: #C3CBDA; --muted: #8E98AD; --line: #24304A;
+  --surface: #152039; --field: #0D1424; --field-line: #34415E; --chip-line: #4A587A;
+  --navy: #C9D3E6; --navy-ink: #14213D;
+  --accent: #5FBF8C; --accent-soft: #17311F;
+  --band: #0A1121; --band-ink: #FFFFFF; --band-muted: #A9B6CF;
+  --btn: #23845A; --btn-ink: #FFFFFF; --error: #F0956B; --logo-filter: brightness(0) invert(1);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 400 17px/1.55 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: var(--wrap); margin: 0 auto;
+  padding-left: max(24px, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+@media (max-width: 480px) {
+  .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.eyebrow {
+  font: 500 12px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+
+/* En-tête */
+.top { padding-block: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { font-family: var(--serif); font-size: 28px; letter-spacing: -0.02em; text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+.logo small { font-family: var(--sans); font-size: 13px; color: var(--muted); letter-spacing: 0; }
+.top nav { display: flex; gap: 28px; align-items: center; font-size: 14px; font-weight: 500; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--ink); }
+.top nav a.cta-mini { color: var(--ink); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+@media (max-width: 720px) { .top nav a:not(.cta-mini):not(.keep) { display: none; } .top nav { gap: 18px; } }
+
+/* Hero */
+.hero { padding-block: 72px 64px; display: grid; gap: 28px; }
+.hero h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.02; max-width: 15ch; }
+.hero h1 em { font-style: italic; font-weight: 300; }
+.hero .lede { font-size: clamp(18px, 2.1vw, 21px); line-height: 1.5; color: var(--ink-soft); max-width: 40ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; padding-top: 8px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 0 26px; border-radius: var(--radius); border: 0;
+  background: var(--btn); color: var(--btn-ink); font: 500 16px var(--sans); text-decoration: none; cursor: pointer;
+  transition: opacity .15s ease;
+}
+.btn:hover { opacity: .86; }
+.link-quiet { font-size: 15px; color: var(--muted); }
+
+/* Bandeau des sources (équivalent de la bande de logos) */
+.sources { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sources .wrap { padding-block: 26px 20px; display: grid; gap: 20px; }
+.sources ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.sources li { display: grid; gap: 10px; justify-items: start; min-width: 0; }
+.sources img { height: 32px; width: auto; max-width: 100%; object-fit: contain; filter: var(--logo-filter); opacity: .72; }
+.sources .wordmark { font: 600 22px/32px var(--sans); letter-spacing: 0.06em; color: var(--ink-soft); }
+.sources .cap { font-size: 12.5px; color: var(--muted); }
+.sources .disclaim { font-size: 12px; color: var(--muted); }
+@media (max-width: 720px) { .sources ul { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+
+/* Sections */
+section.block { padding-block: 96px; }
+.block-head { display: grid; gap: 16px; max-width: 720px; margin-bottom: 56px; }
+.block-head h2 { font-size: clamp(32px, 4.4vw, 48px); line-height: 1.08; }
+.block-head p { color: var(--ink-soft); font-size: 18px; max-width: 56ch; }
+
+/* Constat */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.stat { padding: 24px 24px 0 0; display: grid; gap: 10px; align-content: start; }
+.stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
+.stat .num { font-family: var(--serif); font-size: clamp(40px, 4.6vw, 56px); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat .what { font-size: 15px; color: var(--ink-soft); }
+.stat .src { font-size: 12px; color: var(--muted); }
+@media (max-width: 860px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 480px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat, .stat + .stat { padding-left: 0; border-left: 0; padding-top: 20px; }
+  .stat + .stat { border-top: 1px solid var(--line); }
+}
+.thesis { margin-top: 48px; font-family: var(--serif); font-size: clamp(22px, 2.6vw, 28px); line-height: 1.35; max-width: 34ch; }
+
+/* Parcours */
+.journey { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.phase { padding: 32px; display: grid; gap: 22px; align-content: start; }
+.phase + .phase { border-left: 1px solid var(--line); }
+.phase-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.phase-head h3 { font-size: 24px; }
+.phase-head .tag { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.steps li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+.steps .n { font-family: var(--serif); font-size: 20px; line-height: 1.2; color: var(--muted); font-variant-numeric: tabular-nums; }
+.steps b { display: block; font-weight: 600; font-size: 16px; }
+.steps span { display: block; font-size: 14.5px; color: var(--ink-soft); }
+.phase.cabinet .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.gate {
+  grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 18px 32px;
+  display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; font-size: 15px; color: var(--ink-soft);
+}
+.gate .pill { background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+@media (max-width: 860px) {
+  .journey { grid-template-columns: 1fr; }
+  .phase + .phase { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .phase { padding: 24px 20px; }
+  .gate { padding: 16px 20px; }
+  .phase.cabinet .steps { grid-template-columns: 1fr; }
+}
+
+/* Simulateur */
+.sim { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.sim-copy { display: grid; gap: 20px; }
+.sim-copy p { color: var(--ink-soft); }
+.sim-copy .law { font-size: 13px; color: var(--muted); }
+.sim-copy .sim-warn { font-size: 14.5px; color: var(--ink-soft); padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; }
+.sim-copy .sim-warn b { color: var(--ink); font-weight: 600; }
+.sim-card { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 28px; display: grid; gap: 26px; }
+.sim-row { display: grid; gap: 10px; }
+.sim-row label { font-size: 14px; font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+.sim-row output { font-family: var(--serif); font-size: 22px; font-weight: 400; font-variant-numeric: tabular-nums; }
+.sim-row input[type=range] { width: 100%; accent-color: var(--ink); }
+.sim-row .verdict { font-size: 14px; display: flex; gap: 8px; align-items: baseline; }
+.verdict .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; transform: translateY(-1px); }
+.verdict.ok { color: var(--accent); } .verdict.ok .dot { background: var(--accent); }
+.verdict.ko { color: var(--error); } .verdict.ko .dot { background: var(--error); }
+.sim-card .note { font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+@media (max-width: 860px) { .sim { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Tarifs */
+.prices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.price { padding: 28px 28px 8px 0; display: grid; gap: 14px; align-content: start; }
+.price + .price { padding-left: 28px; border-left: 1px solid var(--line); }
+.price .amount { font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.price .unit { font-size: 14px; color: var(--muted); }
+.price ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: var(--ink-soft); }
+.price li::before { content: "—"; color: var(--muted); margin-right: 10px; }
+.prices-foot { margin-top: 32px; font-size: 14px; color: var(--muted); max-width: 70ch; }
+@media (max-width: 860px) {
+  .prices { grid-template-columns: 1fr; }
+  .price, .price + .price { padding-left: 0; border-left: 0; padding-bottom: 24px; }
+  .price + .price { border-top: 1px solid var(--line); }
+}
+
+/* Bandeau sombre + formulaire */
+.band {
+  position: relative; background-color: var(--band); color: var(--band-ink); overflow: hidden;
+}
+.band::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .53 0 0 0 0 .44 0 0 0 1.6 -.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(120% 80% at 85% 10%, rgba(120,112,88,.35), transparent 60%);
+}
+.band .wrap { position: relative; padding-block: 104px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
+.band-copy { display: grid; gap: 22px; padding-top: 8px; }
+.band-copy .eyebrow { color: var(--band-muted); }
+.band-copy h2 { font-size: clamp(34px, 4.4vw, 50px); line-height: 1.05; }
+.band-copy p { color: var(--band-muted); font-size: 17px; max-width: 42ch; }
+.band-copy ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 12px; }
+.band-copy li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; font-size: 15.5px; color: var(--band-ink); }
+.band-copy li::before { content: "✓"; color: var(--band-muted); }
+@media (max-width: 900px) { .band .wrap { grid-template-columns: 1fr; gap: 40px; padding-block: 72px; } }
+
+.card {
+  background: var(--surface); color: var(--ink); border-radius: 6px; padding: 32px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 20px 50px -20px rgba(0,0,0,.6);
+}
+@media (max-width: 560px) { .card { padding: 22px 18px; } }
+form.signup { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 20px; }
+.field { display: grid; gap: 7px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 15px; }
+.field label .req { color: var(--muted); margin-left: 2px; }
+.field input, .field select {
+  width: 100%; min-height: 46px; padding: 0 13px; border-radius: var(--radius);
+  border: 1px solid var(--field-line); background: var(--field); color: var(--ink);
+  font: 400 16px var(--sans);
+}
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+.field input::placeholder { color: var(--muted); opacity: .75; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.field.invalid input, .field.invalid select { border-color: var(--error); }
+.field .err { font-size: 13px; color: var(--error); }
+.group { grid-column: 1 / -1; display: grid; gap: 4px; padding-top: 8px; border-top: 1px solid var(--line); }
+.group:first-child { padding-top: 0; border-top: 0; }
+.group-title { font-family: var(--serif); font-size: 22px; }
+.group-sub { font-size: 13.5px; color: var(--muted); }
+.field .label { font-size: 15px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  min-height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--field-line); background: var(--field); color: var(--ink); font: 500 14.5px var(--sans);
+}
+.chip[aria-pressed="true"] { background: var(--btn); color: var(--btn-ink); border-color: var(--btn); }
+.chip.add { border-style: dashed; color: var(--muted); }
+.chip-new { display: flex; gap: 8px; }
+.chip-new input { flex: 1 1 auto; min-width: 0; min-height: 40px; padding: 0 13px; border-radius: var(--radius); border: 1px solid var(--field-line); background: var(--field); color: var(--ink); font: 400 15px var(--sans); }
+#fs-secteurs.invalid .chip:not([aria-pressed="true"]) { border-color: var(--error); }
+.check.boxed { padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); }
+.check { grid-column: 1 / -1; display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; align-items: start; font-size: 14.5px; color: var(--ink-soft); }
+.check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--ink); }
+.check.invalid { color: var(--error); }
+form.signup .btn { grid-column: 1 / -1; width: 100%; min-height: 52px; }
+form.signup .btn[disabled] { opacity: .6; cursor: progress; }
+.form-foot { grid-column: 1 / -1; font-size: 13px; color: var(--muted); text-align: center; }
+@media (max-width: 560px) { form.signup { grid-template-columns: 1fr; } }
+
+.done { display: grid; gap: 14px; padding-block: 12px; }
+.done h3 { font-size: 30px; line-height: 1.1; }
+.done p { color: var(--ink-soft); }
+.done .demo { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+.band-after { position: relative; text-align: center; font-size: 13px; color: var(--band-muted); padding-bottom: 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 901px) { .band-copy { position: sticky; top: 40px; } }
+[hidden] { display: none !important; }
+
+/* Pied de page */
+footer .wrap { padding-block: 36px; display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; font-size: 13px; color: var(--muted); }
+
+/* Hero avec écran */
+.hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: center; gap: 48px; padding-block: 56px 64px; }
+.hero-text { display: grid; gap: 28px; align-content: center; }
+.hero-visual { margin: 0; position: relative; justify-self: center; }
+.float-note {
+  position: absolute; left: -48px; bottom: 72px; display: grid; gap: 2px; max-width: 220px;
+  padding: 12px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line);
+  box-shadow: 0 12px 30px -12px rgba(20,33,61,.35); font-size: 13px; color: var(--ink-soft);
+}
+.float-note b { color: var(--accent); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .float-note { left: auto; right: -12px; bottom: 40px; }
+}
+@media (max-width: 480px) { .hero-visual .phone { --s: .66 !important; } .float-note { right: 0; } }
+
+/* Cadre de téléphone : l'écran de la maquette (390 px) est mis à l'échelle --s */
+.phone {
+  --s: .7; --h: 820px;
+  padding: 9px; border-radius: 40px; background: var(--bezel);
+  box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 30px 60px -28px rgba(20,33,61,.55);
+  width: max-content; max-width: 100%;
+}
+.phone .screen {
+  position: relative; overflow: hidden; border-radius: 32px; background: var(--scr-bg);
+  width: calc(390px * var(--s)); height: calc(var(--h) * var(--s));
+}
+.phone .inner { width: 390px; transform: scale(var(--s)); transform-origin: 0 0; pointer-events: none; }
+.phone .inner > div { height: auto !important; }
+.phone .screen::after {
+  content: ""; position: absolute; inset: auto 0 0; height: 18%;
+  background: linear-gradient(to bottom, transparent, var(--scr-bg));
+}
+
+/* Section application */
+.showcase { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.showcase .wrap { padding-block: 88px 64px; }
+.screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.screens figure { margin: 0; display: grid; gap: 24px; justify-items: center; align-content: start; }
+.screens figcaption { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; max-width: 280px; justify-self: center; }
+.screens figcaption .n {
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--navy); color: var(--navy-ink); font-weight: 600; font-size: 14px;
+}
+.screens figcaption b { display: block; font-weight: 600; }
+.screens figcaption span:not(.n) { display: block; font-size: 14.5px; color: var(--ink-soft); }
+.screens-cta { margin-top: 48px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 20px; }
+.screens-cta span { font-size: 14px; color: var(--muted); }
+.screens-note { margin-top: 24px; font-size: 12.5px; color: var(--muted); text-align: center; }
+@media (max-width: 900px) {
+  .screens { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(260px, 80%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+  .screens figure { scroll-snap-align: center; }
+}
+
+/* Bento « Pensé pour le repreneur » : section volontairement sombre dans les deux thèmes */
+.bento {
+  --bn-bg: #060A13; --bn-panel: #0B1220; --bn-line: rgba(201,211,230,.16); --bn-line-2: rgba(201,211,230,.32);
+  --bn-ink: #F4F6FA; --bn-soft: #A7B0C2; --bn-dim: #5E6880; --bn-ok: #5FBF8C; --bn-warn: #E8A37A;
+  background: var(--bn-bg); color: var(--bn-ink);
+}
+.bento .wrap { padding-block: 112px; }
+.bn-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--bn-soft); }
+.bn-title { margin-top: 16px; font-size: clamp(32px, 4.6vw, 52px); line-height: 1.08; max-width: 34ch; }
+.bn-title span { display: block; color: var(--bn-dim); }
+.bn-grid {
+  margin-top: 56px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid var(--bn-line);
+}
+.bn-cell { display: flex; flex-direction: column; gap: 28px; padding: 36px; min-width: 0; overflow: hidden; }
+.bn-top { grid-column: span 2; }
+.bn-bottom { grid-column: span 3; border-top: 1px solid var(--bn-line); }
+.bn-top + .bn-top, .bn-bottom + .bn-bottom { border-left: 1px solid var(--bn-line); }
+.bn-text { display: grid; gap: 10px; max-width: 40ch; }
+.bn-text h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.bn-text p { color: var(--bn-soft); font-size: 15px; line-height: 1.55; }
+.bn-illus { position: relative; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; min-height: 250px; }
+.bn-top .bn-illus { margin-top: auto; }
+.dots::before {
+  content: ""; position: absolute; inset: -12px; pointer-events: none;
+  background-image: radial-gradient(rgba(201,211,230,.28) 1px, transparent 1.3px); background-size: 12px 12px;
+  -webkit-mask-image: radial-gradient(closest-side, #000 30%, transparent); mask-image: radial-gradient(closest-side, #000 30%, transparent);
+}
+.bn-illus > * { position: relative; }
+
+/* 1. Étapes */
+.bn-steps { flex-direction: column; gap: 12px; align-items: stretch; padding-left: 26px; }
+.bn-step {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  padding: 14px 16px; border: 1px solid var(--bn-line); background: var(--bn-panel); border-radius: 6px;
+}
+.bn-step .no { font-size: 13px; color: var(--bn-soft); font-variant-numeric: tabular-nums; }
+.bn-step b { display: block; font-size: 14.5px; font-weight: 500; }
+.bn-step small { display: block; font-size: 12px; color: var(--bn-soft); }
+.bn-step.dim { opacity: .4; }
+.bn-step.on { border-color: rgba(244,246,250,.75); background: #0E1728; position: relative; }
+.bn-step .rail {
+  position: absolute; left: -24px; top: 6px; bottom: 6px; width: 4px;
+  background-image: radial-gradient(circle, #F4F6FA 2px, transparent 2.4px); background-size: 4px 11px;
+}
+.bn-step .tick { width: 20px; height: 20px; border-radius: 6px; background: var(--bn-soft); position: relative; }
+.bn-step .tick::after { content: ""; position: absolute; left: 7px; top: 4px; width: 5px; height: 9px; border: solid var(--bn-bg); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.bn-btn { background: #F4F6FA; color: #060A13; font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 4px; }
+
+/* 2. Verrou */
+.bn-lock { min-height: 270px; align-items: flex-end; margin-bottom: -36px; }
+.bn-lock svg { width: 118%; max-width: 420px; height: auto; display: block; flex: 0 0 auto; }
+.bn-glyphs {
+  position: absolute; left: 12px; top: 8px; margin: 0; font: 500 12px/1.35 ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: .3em; color: var(--bn-soft); opacity: .8;
+}
+
+/* 3. Tableau du score */
+.bn-table { border-collapse: collapse; width: 100%; max-width: 360px; font-size: 14px; background: var(--bn-bg); }
+.bn-table th { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; color: var(--bn-soft); padding: 10px 8px; text-align: center; border: 1px solid var(--bn-line); }
+.bn-table th:first-child { border-top-color: transparent; border-left-color: transparent; }
+.bn-table td { padding: 9px 12px; border: 1px solid var(--bn-line); text-align: center; color: var(--bn-soft); font-variant-numeric: tabular-nums; }
+.bn-table td:first-child { text-align: left; color: var(--bn-ink); }
+.bn-table tfoot td { font-weight: 600; color: var(--bn-ink); }
+.box { display: inline-grid; place-items: center; min-width: 30px; height: 26px; padding: 0 6px; border-radius: 4px; font-size: 13px; font-weight: 600; }
+.box.ok { background: #F4F6FA; color: #060A13; }
+.box.warn { border: 1px solid var(--bn-warn); color: var(--bn-warn); }
+.box.total { background: #1E7048; color: #FFFFFF; }
+
+/* 4 et 5. Cartes */
+.bn-bottom .bn-illus { min-height: 270px; }
+.bn-card { width: 100%; max-width: 460px; border: 1px solid var(--bn-line-2); background: var(--bn-bg); padding: 20px 22px; display: grid; gap: 4px; }
+.bn-card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 15px; padding-bottom: 14px; margin-bottom: 6px; border-bottom: 1px solid var(--bn-line-2); color: var(--bn-soft); }
+.bn-card-head b { color: var(--bn-ink); font-weight: 600; }
+.bn-card-head .badge { background: #F4F6FA; color: #060A13; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 3px; }
+.bn-row { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 0; font-size: 14.5px; }
+.bn-row .ico { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--bn-line-2); border-radius: 4px; font-size: 12px; color: var(--bn-soft); }
+.bn-row .lbl { min-width: 0; }
+.bn-row .tag { font-size: 12px; padding: 3px 9px; border: 1px solid var(--bn-line-2); color: var(--bn-soft); border-radius: 3px; white-space: nowrap; }
+.bn-row .tag.ok { border-color: var(--bn-ok); color: var(--bn-ok); }
+.bn-row.fade { opacity: .35; }
+.bn-flow { display: grid; grid-template-columns: auto minmax(40px, 1fr) auto; align-items: start; gap: 0; padding: 14px 0 6px; }
+.bn-flow .node { display: grid; justify-items: center; gap: 6px; text-align: center; }
+.bn-flow .sq { width: 72px; height: 72px; display: grid; place-items: center; border: 1px solid var(--bn-line-2); background: var(--bn-panel); color: var(--bn-ink); }
+.bn-flow .node b { font-size: 14px; font-weight: 500; }
+.bn-flow .node small { font-size: 12px; color: var(--bn-soft); font-variant-numeric: tabular-nums; }
+.bn-flow .link { position: relative; height: 72px; display: grid; place-items: center; }
+.bn-flow .link::before { content: ""; position: absolute; left: 8px; right: 8px; top: 50%; height: 1px; background: var(--bn-line-2); }
+.bn-flow .mid { position: relative; font-size: 12px; font-weight: 600; padding: 5px 10px; border: 1px solid var(--bn-ok); color: var(--bn-ok); background: var(--bn-bg); border-radius: 3px; }
+.bn-foot { font-size: 13px; color: var(--bn-dim); padding-top: 10px; }
+
+@media (max-width: 1000px) {
+  .bn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bn-top, .bn-bottom { grid-column: span 1; border-left: 0 !important; border-top: 1px solid var(--bn-line); }
+  .bn-top:first-child { grid-column: 1 / -1; border-top: 0; }
+  .bn-top:nth-child(3), .bn-bottom:nth-child(5) { border-left: 1px solid var(--bn-line) !important; }
+}
+@media (max-width: 680px) {
+  .bento .wrap { padding-block: 80px; }
+  .bn-grid { grid-template-columns: 1fr; }
+  .bn-top:nth-child(3), .bn-bottom:nth-child(5) { border-left: 0 !important; }
+  .bn-cell { padding: 28px 20px; gap: 22px; }
+  .bn-bottom { flex-direction: column-reverse; }
+  .bn-illus, .bn-bottom .bn-illus { min-height: 0; }
+  .bn-lock { min-height: 220px; }
+  .bn-lock { margin-bottom: -28px; }
+}
+
+/* Formulaire en trois étapes */
+form.signup { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.stepper { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.stepper li { display: grid; grid-template-rows: 4px auto; gap: 10px; align-content: start; }
+.stepper .bar { height: 4px; border-radius: 2px; background: var(--line); transition: background .25s ease; }
+.stepper li.on .bar, .stepper li.done .bar { background: var(--accent); }
+.stepper .lbl { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.stepper .lbl b {
+  width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; flex: 0 0 auto;
+  border: 1.5px solid var(--field-line); font-size: 12px; font-weight: 600;
+}
+.stepper li.on .lbl { color: var(--ink); font-weight: 600; }
+.stepper li.on .lbl b { border-color: var(--navy); background: var(--navy); color: var(--navy-ink); }
+.stepper li.done .lbl b { border-color: var(--accent); background: var(--accent); color: #FFFFFF; }
+.step { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; min-width: 0; }
+.step-head { grid-column: 1 / -1; display: grid; gap: 4px; }
+.step-head h3 { font-size: 22px; font-weight: 700; }
+.step-head p { font-size: 14.5px; color: var(--muted); }
+.field .opt { font-size: 12.5px; color: var(--muted); font-weight: 400; margin-left: 4px; }
+.recap { grid-column: 1 / -1; margin: 0; display: grid; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+.recap > div { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 4px 14px; align-items: baseline; padding: 11px 14px; }
+.recap > div + div { border-top: 1px solid var(--line); }
+.recap dt { font-size: 13px; color: var(--muted); }
+.recap dd { margin: 0; font-size: 14.5px; font-weight: 500; min-width: 0; overflow-wrap: anywhere; }
+.recap-edit { border: 0; background: none; padding: 0; font: 500 13px var(--sans); color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.step-nav { display: flex; gap: 12px; align-items: center; }
+form.signup .step-nav .btn { width: auto; flex: 1 1 auto; }
+form.signup .step-nav .btn-ghost { flex: 0 0 auto; background: transparent; color: var(--ink); border: 1.5px solid var(--field-line); padding: 0 22px; }
+form.signup .step-nav .btn[disabled] { opacity: .6; cursor: progress; }
+@media (max-width: 560px) {
+  .step { grid-template-columns: minmax(0, 1fr); }
+  .stepper .lbl { font-size: 12px; }
+  .recap > div { grid-template-columns: minmax(0, 1fr) auto; }
+  .recap dt { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .stepper .bar { transition: none; } }
+
+/* Espace client */
+.esp-top { background: var(--navy); color: var(--navy-ink); }
+.esp-top-in { padding-block: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
+.esp-brand { display: flex; align-items: center; gap: 12px; }
+.esp-top .logo, .esp-top .logo small { color: inherit; }
+.esp-top .logo small { opacity: .7; }
+.esp-badge { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; opacity: .85; }
+.esp-user { display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.esp-back { color: inherit; opacity: .8; }
+.esp-wrap { padding-block: 32px 96px; display: grid; gap: 20px; }
+.esp-demo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding: 10px 16px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 500; }
+.esp-demo button { border: 0; background: none; color: inherit; font: 600 14px var(--sans); text-decoration: underline; cursor: pointer; padding: 0; }
+.esp-gate-card { max-width: 560px; margin: 40px auto; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px; display: grid; gap: 16px; }
+.esp-gate-card h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.esp-gate-card p { color: var(--ink-soft); }
+.esp-gate-act { display: flex; flex-wrap: wrap; gap: 10px; }
+.esp-note { font-size: 13px; color: var(--muted); }
+.esp-muted { color: var(--muted); }
+.esp-app { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px; align-items: start; }
+.esp-nav { display: grid; gap: 4px; position: sticky; top: 24px; }
+.esp-nav button { display: flex; justify-content: space-between; align-items: center; gap: 8px; text-align: left; padding: 11px 14px; border-radius: 10px; border: 1px solid transparent; background: none; font: 500 15px var(--sans); color: var(--ink-soft); cursor: pointer; }
+.esp-nav button:hover { background: var(--surface); }
+.esp-nav button[aria-current="page"] { background: var(--surface); border-color: var(--line); color: var(--ink); font-weight: 600; }
+.esp-nav .nb { min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px; background: var(--accent); color: #FFFFFF; font-size: 12px; font-weight: 600; display: inline-grid; place-items: center; }
+.esp-nav .nb:empty { display: none; }
+.esp-main { display: grid; gap: 18px; min-width: 0; outline: none; }
+.esp-head h2 { font-size: clamp(26px, 3vw, 34px); font-weight: 700; letter-spacing: -0.02em; }
+.esp-head p { color: var(--ink-soft); margin-top: 4px; }
+.esp-info { font-size: 14px; color: var(--muted); padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; }
+.esp-empty, .esp-box, .esp-dossier { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 12px; }
+.esp-empty p { color: var(--ink-soft); }
+.esp-empty .btn { justify-self: start; }
+.esp-list { display: grid; gap: 12px; }
+.esp-card { position: relative; width: 100%; text-align: left; display: grid; gap: 12px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; cursor: pointer; font: inherit; color: var(--ink); transition: border-color .15s ease; }
+.esp-card:hover { border-color: var(--chip-line); }
+.esp-card.hl { border: 2px solid var(--accent); }
+.esp-card.dim { opacity: .6; }
+.esp-card .row, .esp-dossier .row, .esp-box .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.esp-card .ttl { display: grid; gap: 2px; min-width: 0; }
+.esp-card .ttl b { font-size: 17px; font-weight: 600; }
+.esp-card .ttl small { font-size: 12.5px; color: var(--muted); }
+.esp-card .score { flex-shrink: 0; padding: 5px 10px; border-radius: 10px; background: var(--line); font-weight: 700; font-size: 17px; font-variant-numeric: tabular-nums; }
+.esp-card .score.top { background: var(--accent); color: #FFFFFF; }
+.esp-card .track { height: 6px; border-radius: 3px; background: var(--line); }
+.esp-card .track i { display: block; height: 6px; border-radius: 3px; background: var(--chip-line); }
+.esp-card.hl .track i { background: var(--accent); }
+.esp-card .meta { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13.5px; color: var(--ink-soft); }
+.esp-card .foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13.5px; font-weight: 600; }
+.esp-card .dl { color: var(--error); }
+.esp-card .ex { position: absolute; top: -9px; right: 16px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); color: var(--muted); }
+.st { font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.st.ok { color: var(--accent); } .st.wait { color: var(--error); } .st.off { color: var(--muted); }
+.esp-backlink { justify-self: start; border: 0; background: none; padding: 0; font: 500 14px var(--sans); color: var(--muted); cursor: pointer; }
+.esp-fiche-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; background: var(--navy); color: var(--navy-ink); border-radius: 16px; padding: 24px; }
+.esp-fiche-top h2 { font-size: 28px; font-weight: 700; }
+.esp-fiche-top p { opacity: .8; margin-top: 2px; }
+.esp-read { display: inline-block; margin-top: 12px; font-size: 12.5px; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,.12); }
+.esp-big { display: grid; justify-items: center; padding: 8px 14px; border-radius: 12px; background: var(--accent); color: #FFFFFF; flex-shrink: 0; }
+.esp-big b { font-size: 28px; } .esp-big small { font-size: 12px; opacity: .85; }
+.esp-fiche { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.esp-sec { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.esp-sec h3 { font-size: 15.5px; font-weight: 600; }
+.esp-sec p, .esp-sec li { font-size: 14.5px; color: var(--ink-soft); }
+.esp-sec .kv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+.esp-sec .kv span { display: grid; gap: 2px; } .esp-sec .kv small { font-size: 12.5px; color: var(--muted); } .esp-sec .kv b { font-weight: 600; font-size: 14.5px; } .esp-sec .kv b.warn { color: var(--error); }
+.esp-sec ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.esp-sec ul.chk li { display: flex; gap: 10px; } .esp-sec .y { color: var(--accent); font-weight: 700; } .esp-sec .w { color: var(--error); font-weight: 700; }
+.esp-sec ul.bullets li { padding-left: 16px; position: relative; } .esp-sec ul.bullets li::before { content: "•"; position: absolute; left: 2px; color: var(--muted); }
+.esp-sec b { color: var(--ink); font-weight: 600; }
+.esp-src { font-size: 12.5px; color: var(--muted); }
+.esp-decide { position: sticky; bottom: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 20px; box-shadow: 0 16px 40px -24px rgba(20,33,61,.45); }
+.esp-decide p { flex: 1 1 280px; font-weight: 500; }
+.esp-decide.ok { border-color: var(--accent); background: var(--accent-soft); }
+.esp-decide.wait { border-color: var(--error); }
+.esp-decide-act { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--field-line); }
+.esp-modal { position: fixed; inset: 0; z-index: 50; background: rgba(11,19,36,.55); display: grid; place-items: center; padding: 16px; }
+.esp-dialog { background: var(--surface); color: var(--ink); border-radius: 18px; padding: 28px; max-width: 460px; width: 100%; display: grid; gap: 16px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); }
+.esp-dialog h3 { font-size: 21px; font-weight: 700; }
+.esp-dialog ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; color: var(--ink-soft); font-size: 14.5px; }
+.esp-dialog-act { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.esp-dossier h3 { font-size: 18px; font-weight: 600; }
+.esp-lawyer { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px; background: var(--paper); }
+.esp-lawyer .av { width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: var(--navy-ink); display: grid; place-items: center; font-weight: 600; flex-shrink: 0; }
+.esp-lawyer b { display: block; } .esp-lawyer small { color: var(--muted); font-size: 13px; }
+.esp-tl { list-style: none; margin: 0; padding: 0; display: grid; }
+.esp-tl li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 14px; position: relative; padding-bottom: 16px; }
+.esp-tl li:not(:last-child)::before { content: ""; position: absolute; left: 11px; top: 24px; bottom: 0; width: 2px; background: var(--line); }
+.esp-tl .dot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--chip-line); background: var(--surface); display: grid; place-items: center; font-size: 12px; color: #FFFFFF; }
+.esp-tl li.ok .dot { background: var(--accent); border-color: var(--accent); }
+.esp-tl li.now .dot { border-color: var(--navy); }
+.esp-tl b { display: block; font-size: 15px; } .esp-tl small { font-size: 13px; color: var(--muted); }
+.esp-box h3 { font-size: 17px; font-weight: 600; }
+.esp-dl { margin: 0; display: grid; }
+.esp-dl > div { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 4px 16px; padding: 10px 0; border-top: 1px solid var(--line); }
+.esp-dl dt { color: var(--muted); font-size: 14px; } .esp-dl dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+.esp-link { border: 0; background: none; padding: 0; font: 600 14px var(--sans); color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.esp-form { display: grid; gap: 14px; }
+.esp-form-act { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.esp-check { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; align-items: start; padding: 10px 0; cursor: pointer; }
+.esp-check input { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--navy); }
+.esp-check b { display: block; font-weight: 500; } .esp-check small { color: var(--muted); font-size: 13px; }
+.esp-prefs .btn { justify-self: start; margin-top: 6px; }
+.esp-how { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--ink-soft); font-size: 14.5px; }
+.esp-flash { padding: 12px 16px; border-radius: 12px; background: var(--navy); color: var(--navy-ink); font-size: 14px; }
+@media (max-width: 860px) {
+  .esp-app { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .esp-nav { position: static; display: flex; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
+  .esp-nav button { flex: 0 0 auto; white-space: nowrap; }
+  .esp-fiche { grid-template-columns: minmax(0, 1fr); }
+  .esp-dl > div { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .esp-fiche-top { padding: 18px; } .esp-fiche-top h2 { font-size: 23px; }
+  .esp-gate-card { padding: 22px; margin: 16px auto; }
+  .esp-user #esp-who { display: none; }
+  .esp-decide { position: static; }
+  .esp-decide-act, .esp-decide-act .btn { width: 100%; }
+}
+
+/* Enchaînement : deux blocs consécutifs sur le même fond partagent un seul espacement */
+.block + .block { padding-top: 0; }
+.prices-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.prices-cta span { font-size: 14px; color: var(--muted); }
+.bn-more {
+  list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--bn-line); border-top: 0;
+}
+.bn-more li { padding: 24px 36px; display: grid; gap: 6px; min-width: 0; }
+.bn-more li + li { border-left: 1px solid var(--bn-line); }
+.bn-more b { font-weight: 600; font-size: 15px; }
+.bn-more span { font-size: 14px; color: var(--bn-soft); }
+@media (max-width: 860px) {
+  .bn-more { grid-template-columns: 1fr; }
+  .bn-more li + li { border-left: 0; border-top: 1px solid var(--bn-line); }
+  .bn-more li { padding: 20px; }
+}
+
+/* Photos d'ateliers */
+.photo { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 14px; background: var(--line); }
+.photo small { font-size: 12px; color: var(--muted); }
+.photo.wide { margin-top: 56px; position: relative; }
+.photo.wide img { aspect-ratio: 21 / 9; max-height: 520px; }
+.photo.wide figcaption { display: grid; gap: 8px; }
+.photo.wide figcaption span { font-size: clamp(18px, 2vw, 22px); font-weight: 600; letter-spacing: -0.01em; max-width: 40ch; }
+@media (min-width: 761px) {
+  .photo.wide figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 80px 32px 24px; border-radius: 0 0 14px 14px;
+    background: linear-gradient(to top, rgba(10,17,33,.85), transparent); }
+  .photo.wide figcaption span { color: #FFFFFF; }
+  .photo.wide figcaption small { color: rgba(255,255,255,.7); }
+}
+@media (max-width: 760px) { .photo.wide img { aspect-ratio: 4 / 3; } }
+.head-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 48px; align-items: end; margin-bottom: 56px; }
+.head-split .block-head { margin-bottom: 0; }
+.photo.tall img { aspect-ratio: 4 / 5; max-height: 400px; }
+@media (max-width: 760px) {
+  .head-split { grid-template-columns: 1fr; gap: 28px; }
+  .photo.tall img { aspect-ratio: 16 / 10; }
+}
+.sim-copy .photo { margin-top: 8px; }
+.sim-copy .photo img { aspect-ratio: 3 / 2; }
+.band {
+  background-image: linear-gradient(color-mix(in srgb, var(--band) 90%, transparent), color-mix(in srgb, var(--band) 82%, transparent)), url("img/halle.webp");
+  background-size: cover; background-position: center;
+}
+
+/* Charte maquette : graisses, rayons et pastilles */
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; }
+.hero h1 { line-height: 1.05; }
+.hero h1 em { font-style: normal; font-weight: 700; color: var(--accent); }
+.logo { font-weight: 700; letter-spacing: 0.02em; }
+.stat .num, .price .amount { font-weight: 600; letter-spacing: -0.03em; }
+.thesis { font-weight: 500; letter-spacing: -0.01em; }
+.steps .n { font-weight: 600; }
+.group-title { font-weight: 600; font-size: 19px; }
+.sim-row output { font-weight: 600; }
+.btn { border-radius: 12px; font-weight: 600; min-height: 52px; }
+.card { border-radius: 14px; }
+.journey, .sim-card { border-radius: 14px; }
+.check.boxed { border-radius: 12px; }
+.chip { min-height: 44px; border: 1.5px solid var(--chip-line); border-radius: 22px; }
+.chip[aria-pressed="true"] { background: var(--navy); color: var(--navy-ink); border-color: var(--navy); }
+.field input, .field select { border-width: 1.5px; }
+.field input:focus, .field select:focus { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.sim-row input[type=range], .check input { accent-color: var(--navy); }
+.band::before {
+  opacity: .35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .79 0 0 0 0 .83 0 0 0 0 .90 0 0 0 1.6 -.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(120% 80% at 85% 10%, rgba(70,105,170,.45), transparent 60%);
+}
+
+/* Le cabinet : cinq portraits dans l'ordre des initiales F-L-O-R-A */
+.team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+.member { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.member img { display: block; width: 100%; height: auto; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; background: var(--line); }
+.member-txt { display: grid; gap: 4px; }
+.member-txt b { font-size: 17px; font-weight: 600; }
+.member-txt b .ini { color: var(--accent); }
+.member-txt span:not(.ini) { font-size: 14.5px; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .team { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .member { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: center; }
+  .member-txt b { font-size: 16px; }
+}
+
+
+/* Bandeau : projet étudiant */
+.school-banner { margin: 0; padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--navy); color: var(--navy-ink); font-size: 13px; text-align: center; }
+</style>
+
+<p class="school-banner">Projet étudiant fictif, présenté au LAB de l'EFB 2026. FLORA Avocats n'existe pas et ne propose aucun service.</p>
+<div id="site">
+<header class="wrap top">
+  <a class="logo" href="#top" id="top">FLORA <small>Avocats</small></a>
+  <nav aria-label="Navigation principale">
+    <a href="#parcours">Le parcours</a>
+    <a href="#simulateur">Simulateur</a>
+    <a href="#avantages">Garanties</a>
+    <a href="#cabinet">Le cabinet</a>
+    <a href="#tarifs">Tarifs</a>
+    <a class="keep cta-mini" href="#espace">Espace client</a>
+    <a class="cta-mini" href="#inscription">S'inscrire</a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+    <span class="eyebrow">Reprise d'entreprises en difficulté</span>
+    <h1 id="hero-title">Soyez le premier sur le <em>bon</em> dossier.</h1>
+    <p class="lede">Chaque matin, nous repérons les entreprises en procédure collective qui correspondent à votre projet de reprise. Puis votre avocat porte votre offre jusqu'au tribunal.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#inscription">Créer mon profil de repreneur</a>
+      <a class="link-quiet" href="#parcours">Voir comment ça marche</a>
+    </div>
+    </div>
+    <figure class="hero-visual">
+      <div class="phone" style="--s: .74; --h: 860px" role="img" aria-label="Écran du fil des alertes : trois sociétés avec leur score d'adéquation">
+        <div class="screen"><div class="inner" inert><div style="width: 390px; height: 980px; box-sizing: border-box; background: #F4F5F7; font-family: 'IBM Plex Sans', sans-serif; color: #14213D; display: flex; flex-direction: column">
+  <div style="background: #14213D; color: #FFFFFF; padding: 28px 24px 20px; display: flex; flex-direction: column; gap: 6px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #C9D3E6">FLORA Avocats</div>
+    <h1 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2">Bonjour Paul</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 1.45; color: #DCE3F0">3 opportunités correspondent à votre profil cette semaine. Chacune a été relue par un avocat du cabinet.</p>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 20px 8px">
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5A6478">Nouveau · mercredi 8 h 14</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #FFFFFF; border: 2px solid #1E7048; border-radius: 16px; text-decoration: none; color: #14213D">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+        <span style="font-size: 17px; font-weight: 600; line-height: 1.3">Société A · tôlerie industrielle</span>
+        <span style="flex-shrink: 0; padding: 6px 10px; border-radius: 10px; background: #1E7048; color: #FFFFFF; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums">88 %</span>
+      </div>
+      <div style="height: 6px; border-radius: 3px; background: #E3E7EE"><div style="width: 88%; height: 6px; border-radius: 3px; background: #1E7048"></div></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 12px; font-size: 13px; color: #3D4A63">
+        <span>Eure-et-Loir (28)</span><span>38 salariés</span>
+        <span>CA 6,4 M€</span><span>Redressement judiciaire</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+        <span style="font-weight: 600; color: #8A3B12">Offres avant J+27</span>
+        <span style="font-weight: 600">Voir la fiche →</span>
+      </div>
+    </div>
+    <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #5A6478; margin-top: 8px">Cette semaine</div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 16px; text-decoration: none; color: #14213D">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+        <span style="font-size: 17px; font-weight: 600; line-height: 1.3">Société B · usinage</span>
+        <span style="flex-shrink: 0; padding: 6px 10px; border-radius: 10px; background: #E3E7EE; color: #14213D; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums">74 %</span>
+      </div>
+      <div style="height: 6px; border-radius: 3px; background: #E3E7EE"><div style="width: 74%; height: 6px; border-radius: 3px; background: #5A6B8C"></div></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 12px; font-size: 13px; color: #3D4A63">
+        <span>Cher (18)</span><span>52 salariés</span>
+        <span>CA 7,1 M€</span><span>Liquidation, activité maintenue</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+        <span style="font-weight: 600; color: #8A3B12">Offres avant J+12</span>
+        <span style="font-weight: 600">Voir la fiche →</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 18px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 16px; text-decoration: none; color: #14213D">
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+        <span style="font-size: 17px; font-weight: 600; line-height: 1.3">Société C · traitement de surface</span>
+        <span style="flex-shrink: 0; padding: 6px 10px; border-radius: 10px; background: #E3E7EE; color: #14213D; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums">61 %</span>
+      </div>
+      <div style="height: 6px; border-radius: 3px; background: #E3E7EE"><div style="width: 61%; height: 6px; border-radius: 3px; background: #5A6B8C"></div></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 12px; font-size: 13px; color: #3D4A63">
+        <span>Indre (36)</span><span>24 salariés</span>
+        <span>CA 2,9 M€</span><span>Redressement judiciaire</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+        <span style="font-weight: 600; color: #3D4A63">Appel d’offres non publié</span>
+        <span style="font-weight: 600">Voir la fiche →</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: auto; padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 8px">
+    <div style="min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1.5px solid #14213D; color: #14213D; font-size: 15px; font-weight: 600; text-decoration: none">Modifier mon profil</div>
+    <p style="margin: 0; font-size: 12px; color: #5A6478; text-align: center">Données fictives · maquette de démonstration</p>
+  </div>
+</div></div></div>
+      </div>
+      <figcaption class="float-note"><b>Nouveau · 8 h 14</b><span>Société A correspond à 88 % à votre profil</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="sources" aria-label="Sources surveillées">
+    <div class="wrap">
+      <span class="eyebrow">Veille quotidienne sur</span>
+      <ul>
+        <li><span class="wordmark">BODACC</span><span class="cap">Annonces des procédures</span></li>
+        <li><span class="wordmark">ACTIFY</span><span class="cap">Appels d'offres des administrateurs, avec leurs sites et le CNAJMJ</span></li>
+        <li><span class="wordmark">RNE</span><span class="cap">Registre et comptes déposés</span></li>
+        <li><span class="wordmark">PAPPERS</span><span class="cap">Données financières des dossiers présélectionnés</span></li>
+      </ul>
+      <p class="disclaim">Sources publiques consultées, sans partenariat.</p>
+    </div>
+  </div>
+
+  <section class="wrap block" aria-labelledby="constat-title">
+    <div class="block-head">
+      <span class="eyebrow">Le constat</span>
+      <h2 id="constat-title">Des entreprises à reprendre, trop peu de repreneurs prêts à temps.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="num">70 766</span><span class="what">défaillances d'entreprises sur 12 mois, 19 % au-dessus de la moyenne 2010-2019</span><span class="src">Banque de France, fin août 2026</span></div>
+      <div class="stat"><span class="num">66 %</span><span class="what">des dossiers ne reçoivent qu'une seule offre de reprise</span><span class="src">KPMG, dernière étude nationale (2017-2018)</span></div>
+      <div class="stat"><span class="num">68 %</span><span class="what">des procédures ouvertes directement en liquidation : le temps pour reprendre est court</span><span class="src">Ministère de la Justice, 2024</span></div>
+      <div class="stat"><span class="num">267 200</span><span class="what">emplois menacés par une procédure</span><span class="src">Altares, 2025</span></div>
+    </div>
+    <p class="thesis">Chaque repreneur de plus augmente les chances de sauver l'activité et les emplois. Encore faut-il l'apprendre avant la date limite.</p>
+    <figure class="photo wide">
+      <img src="img/soudeur.webp" alt="Un soudeur au travail dans un atelier industriel" loading="lazy" width="1800" height="1200">
+      <figcaption><span>Derrière chaque procédure, un atelier, des machines et des salariés.</span><small>Photo : Cemrecan Yurtman, Unsplash</small></figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap block" id="parcours" aria-labelledby="parcours-title">
+    <div class="head-split">
+      <div class="block-head">
+        <span class="eyebrow">Le parcours</span>
+        <h2 id="parcours-title">L'IA prépare, l'avocat décide.</h2>
+        <p>La veille et le tri sont automatisés. Dès que vous dites oui, le dossier est réservé à votre profit et votre avocat référent prend la main.</p>
+      </div>
+      <figure class="photo tall">
+        <img src="img/plieuse.webp" alt="Un opérateur positionne une tôle sur une presse plieuse" loading="lazy" width="900" height="1100">
+        <figcaption><small>Photo : Daulet Turubayev, Unsplash</small></figcaption>
+      </figure>
+    </div>
+    <div class="journey">
+      <div class="phase">
+        <div class="phase-head"><h3>La plateforme</h3><span class="tag">Abonnement</span></div>
+        <ol class="steps">
+          <li><span class="n">1</span><div><b>Veille automatisée</b><span>Bodacc, RNE, décisions et appels d'offres, chaque matin à 7 h.</span></div></li>
+          <li><span class="n">2</span><div><b>Tri, score et éligibilité</b><span>Vos critères de reprise et le contrôle de l'art. L. 642-3 du Code de commerce.</span></div></li>
+          <li><span class="n">3</span><div><b>Fiche et simulateur</b><span>Risques, date limite et offres comparables, relus par l'avocat.</span></div></li>
+        </ol>
+      </div>
+      <div class="phase cabinet">
+        <div class="phase-head"><h3>Le cabinet</h3><span class="tag">Forfait et honoraire de résultat</span></div>
+        <ol class="steps" start="4">
+          <li><span class="n">4</span><div><b>Dossier verrouillé</b><span>Le premier oui vous réserve le dossier.</span></div></li>
+          <li><span class="n">5</span><div><b>Analyse de l'avocat</b><span>Data room, contrats, salariés.</span></div></li>
+          <li><span class="n">6</span><div><b>Offre rédigée et signée</b><span>Art. L. 642-2, calibrée sur l'art. L. 642-5.</span></div></li>
+          <li><span class="n">7</span><div><b>Négociation</b><span>Administrateur, CSE, offre améliorée si besoin.</span></div></li>
+          <li><span class="n">8</span><div><b>Jugement et suivi</b><span>Actes de cession, engagements du plan.</span></div></li>
+        </ol>
+      </div>
+      <div class="gate"><span class="pill">Vous dites oui ?</span><span>Non : la veille continue sans frais supplémentaires. Oui : votre avocat référent vous rappelle sous 24 heures.</span></div>
+    </div>
+  </section>
+
+  <section class="showcase" aria-labelledby="app-title">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">L'application</span>
+        <h2 id="app-title">De l'alerte au dossier verrouillé, en trois écrans.</h2>
+      </div>
+      <div class="screens">
+        <figure>
+          <div class="phone" style="--s: .62; --h: 900px" role="img" aria-label="Écran du profil de repreneur : secteurs, zone, chiffre d'affaires, effectif">
+            <div class="screen"><div class="inner" inert><div style="width: 390px; height: 980px; box-sizing: border-box; background: #F4F5F7; font-family: 'IBM Plex Sans', sans-serif; color: #14213D; display: flex; flex-direction: column">
+  <div style="background: #14213D; color: #FFFFFF; padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 6px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #C9D3E6">FLORA Avocats</div>
+    <h1 style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.2">Votre profil de repreneur</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 1.45; color: #DCE3F0">Dix minutes pour décrire l’entreprise que vous cherchez. Nous veillons ensuite pour vous, chaque matin.</p>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 18px; padding: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 14px; font-weight: 600">Secteurs recherchés</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <button tabindex="-1" type="button" style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid #14213D; background: #14213D; color: #FFFFFF; font: 500 14px 'IBM Plex Sans', sans-serif">Mécanique de précision</button>
+        <button tabindex="-1" type="button" style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid #14213D; background: #14213D; color: #FFFFFF; font: 500 14px 'IBM Plex Sans', sans-serif">Tôlerie</button>
+        <button tabindex="-1" type="button" style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid #9AA3B5; background: #FFFFFF; color: #14213D; font: 500 14px 'IBM Plex Sans', sans-serif">Usinage</button>
+        <button tabindex="-1" type="button" style="min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid #9AA3B5; background: #FFFFFF; color: #14213D; font: 500 14px 'IBM Plex Sans', sans-serif">+ Ajouter</button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 14px; font-weight: 600">Zone géographique</span>
+      <input type="text" value="150 km autour d’Orléans (45)" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 14px; font-weight: 600">Chiffre d’affaires</span>
+        <input type="text" value="3 à 10 M€" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 14px; font-weight: 600">Effectif</span>
+        <input type="text" value="20 à 80 salariés" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 14px; font-weight: 600">Fonds propres mobilisables</span>
+      <input type="text" value="1,5 M€" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 14px; font-weight: 600">Ce que vous voulez reprendre</span>
+      <input type="text" value="Fonds de commerce, parc machines, salariés" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 14px; font-weight: 600">Critères éliminatoires</span>
+      <input type="text" value="Liquidation sans activité ; hors Centre-Val de Loire" tabindex="-1" style="min-height: 46px; box-sizing: border-box; padding: 0 14px; border: 1.5px solid #C5CBD6; border-radius: 10px; background: #FFFFFF; font: 400 15px 'IBM Plex Sans', sans-serif; color: #14213D">
+    </div>
+    <div style="display: flex; gap: 10px; align-items: flex-start; padding: 14px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 12px">
+      <input type="checkbox" checked tabindex="-1" style="width: 20px; height: 20px; margin: 2px 0 0; accent-color: #14213D">
+      <span style="font-size: 13px; line-height: 1.45; color: #3D4A63">Je déclare mes liens familiaux et mes mandats pour le contrôle d’éligibilité (C. com., art. L. 642-3).</span>
+    </div>
+  </div>
+  <div style="margin-top: auto; padding: 0 24px 32px; display: flex; flex-direction: column; gap: 10px">
+    <div style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1E7048; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">Activer ma veille</div>
+    <p style="margin: 0; font-size: 12px; line-height: 1.4; color: #5A6478; text-align: center">Abonnement mensuel : 250 € HT · sans engagement</p>
+  </div>
+</div></div></div>
+          </div>
+          <figcaption><span class="n">1</span><div><b>Décrivez votre cible</b><span>Secteurs, zone, taille et fonds propres : dix minutes, une seule fois.</span></div></figcaption>
+        </figure>
+        <figure>
+          <div class="phone" style="--s: .62; --h: 900px" role="img" aria-label="Fiche d'opportunité de la société A, score de 88 %, relue par l'avocat">
+            <div class="screen"><div class="inner" inert><div style="width: 390px; height: 1240px; box-sizing: border-box; background: #F4F5F7; font-family: 'IBM Plex Sans', sans-serif; color: #14213D; display: flex; flex-direction: column">
+  <div style="background: #14213D; color: #FFFFFF; padding: 20px 24px 22px; display: flex; flex-direction: column; gap: 10px">
+    <div style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; color: #C9D3E6; font-size: 14px; text-decoration: none">← Mes alertes</div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.2">Société A</h1>
+        <span style="font-size: 14px; color: #DCE3F0">Tôlerie industrielle · Eure-et-Loir</span>
+      </div>
+      <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 8px 12px; border-radius: 12px; background: #1E7048">
+        <span style="font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums">88 %</span>
+        <span style="font-size: 11px; color: #D7EFE2">adéquation</span>
+      </div>
+    </div>
+    <span style="align-self: flex-start; padding: 6px 10px; border-radius: 8px; background: #26355A; font-size: 12px; color: #FFFFFF">Relue par un avocat du cabinet</span>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 14px; padding: 18px 20px">
+    <section style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 14px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">La procédure</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 12px; font-size: 13px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #5A6478">Procédure</span><span style="font-weight: 600">Redressement judiciaire</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #5A6478">Tribunal</span><span style="font-weight: 600">TC de Chartres</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #5A6478">Administrateur</span><span style="font-weight: 600">Me X.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="color: #5A6478">Date limite des offres</span><span style="font-weight: 600; color: #8A3B12">J+27</span></div>
+      </div>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 14px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Pourquoi elle vous correspond</h2>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.4">
+        <li style="display: flex; gap: 8px"><span style="color: #1E7048; font-weight: 700">✓</span><span><b>Secteur</b> : tôlerie, dans votre liste</span></li>
+        <li style="display: flex; gap: 8px"><span style="color: #1E7048; font-weight: 700">✓</span><span><b>Zone</b> : 95 km de votre site</span></li>
+        <li style="display: flex; gap: 8px"><span style="color: #1E7048; font-weight: 700">✓</span><span><b>Chiffre d’affaires</b> : 6,4 M€ (dernier exercice déposé)</span></li>
+        <li style="display: flex; gap: 8px"><span style="color: #1E7048; font-weight: 700">✓</span><span><b>Effectif</b> : 38 salariés</span></li>
+        <li style="display: flex; gap: 8px"><span style="color: #8A3B12; font-weight: 700">!</span><span><b>Actifs</b> : parc machines à expertiser</span></li>
+      </ul>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 14px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Points d’attention</h2>
+      <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.4; color: #3D4A63">
+        <li>Un client représente environ 40 % du chiffre d’affaires</li>
+        <li>Bail commercial du site : durée restante à vérifier</li>
+        <li>Deux lignes de pliage sous crédit-bail</li>
+      </ul>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 14px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Éligibilité (C. com., art. L. 642-3)</h2>
+      <p style="margin: 0; font-size: 13px; line-height: 1.4; color: #3D4A63">Aucun lien détecté entre vous et les dirigeants ou contrôleurs de la procédure.</p>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 8px; padding: 16px; background: #EEF1F6; border-radius: 14px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Pièces à demander</h2>
+      <p style="margin: 0; font-size: 13px; line-height: 1.4; color: #3D4A63">Cahier des charges de l’administrateur, accès à la data room (après engagement de confidentialité), liste du personnel, contrats en cours.</p>
+    </section>
+    <p style="margin: 0; font-size: 11.5px; line-height: 1.4; color: #5A6478">Sources : Bodacc, RNE, comptes déposés (via OpenLegi). Données fictives.</p>
+  </div>
+  <div style="margin-top: auto; padding: 0 20px 28px; display: flex; flex-direction: column; gap: 10px">
+    <div style="min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1.5px solid #14213D; color: #14213D; font-size: 15px; font-weight: 600; text-decoration: none">Ouvrir le simulateur d’offre</div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <div style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #E3E7EE; color: #14213D; font-size: 16px; font-weight: 600; text-decoration: none">Non</div>
+      <div style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: #1E7048; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none">Oui, je me positionne</div>
+    </div>
+  </div>
+</div></div></div>
+          </div>
+          <figcaption><span class="n">2</span><div><b>Lisez la fiche relue par l'avocat</b><span>Procédure, date limite, points d'attention et éligibilité.</span></div></figcaption>
+        </figure>
+        <figure>
+          <div class="phone" style="--s: .62; --h: 900px" role="img" aria-label="Suivi du dossier verrouillé avec le calendrier jusqu'à l'audience">
+            <div class="screen"><div class="inner" inert><div style="width: 390px; height: 1060px; box-sizing: border-box; background: #F4F5F7; font-family: 'IBM Plex Sans', sans-serif; color: #14213D; display: flex; flex-direction: column">
+  <div style="background: #1E7048; color: #FFFFFF; padding: 28px 24px 22px; display: flex; flex-direction: column; gap: 8px">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #D7EFE2">Dossier verrouillé</div>
+    <h1 style="margin: 0; font-size: 24px; font-weight: 700; line-height: 1.25">La société A est réservée à votre profit</h1>
+    <p style="margin: 0; font-size: 14px; line-height: 1.45; color: #E6F4EC">Aucun autre abonné ne pourra s’y positionner avec notre cabinet. Votre avocat référent prend le relais.</p>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px; margin: 18px 20px 0; padding: 14px 16px; background: #FFFFFF; border: 1px solid #DDE1E8; border-radius: 14px">
+    <div style="width: 44px; height: 44px; border-radius: 22px; background: #14213D; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 600">AV</div>
+    <div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px">
+      <span style="font-size: 15px; font-weight: 600">Votre avocat référent</span>
+      <span style="color: #5A6478">Vous rappelle sous 24 heures</span>
+    </div>
+  </div>
+  <ol style="margin: 18px 20px 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0">
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; background: #1E7048; color: #FFFFFF; font-size: 13px; display: flex; align-items: center; justify-content: center">✓</span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Vous avez dit oui</span><span style="font-size: 13px; color: #5A6478">Aujourd’hui · convention d’honoraires signée</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #14213D; box-sizing: border-box; background: #FFFFFF"></span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Confidentialité et data room</span><span style="font-size: 13px; color: #5A6478">En cours · engagement transmis à l’administrateur</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #9AA3B5; box-sizing: border-box; background: #FFFFFF"></span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Note d’analyse de l’avocat</span><span style="font-size: 13px; color: #5A6478">Sous 48 heures après l’accès à la data room</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #9AA3B5; box-sizing: border-box; background: #FFFFFF"></span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Prévisionnel avec l’expert-comptable</span><span style="font-size: 13px; color: #5A6478">Activité et financement (C. com., art. L. 642-2)</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #9AA3B5; box-sizing: border-box; background: #FFFFFF"></span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Rencontre avec le CSE</span><span style="font-size: 13px; color: #5A6478">Préparée et accompagnée par votre avocat</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #8A3B12; box-sizing: border-box; background: #FFFFFF"></span><span style="width: 2px; flex-grow: 1; background: #C5CBD6"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 18px"><span style="font-size: 15px; font-weight: 600">Dépôt de l’offre signée</span><span style="font-size: 13px; font-weight: 600; color: #8A3B12">Date limite : J+27</span></div>
+    </li>
+    <li style="display: flex; gap: 14px">
+      <div style="display: flex; flex-direction: column; align-items: center"><span style="width: 22px; height: 22px; border-radius: 11px; border: 2px solid #9AA3B5; box-sizing: border-box; background: #FFFFFF"></span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Audience et jugement</span><span style="font-size: 13px; color: #5A6478">Offre améliorée si besoin, plaidoirie, actes de cession</span></div>
+    </li>
+  </ol>
+  <div style="margin: 18px 20px 0; padding: 14px 16px; background: #EEF1F6; border-radius: 14px; font-size: 13px; line-height: 1.45; color: #3D4A63">Forfait dossier : 24 000 € HT · honoraire de résultat si l’offre est retenue : 10 000 € HT</div>
+  <div style="margin-top: auto; padding: 16px 20px 28px; display: flex; flex-direction: column; gap: 8px">
+    <div style="min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1.5px solid #14213D; color: #14213D; font-size: 15px; font-weight: 600; text-decoration: none">Retour à mes alertes</div>
+    <p style="margin: 0; font-size: 12px; color: #5A6478; text-align: center">Données fictives · maquette de démonstration</p>
+  </div>
+</div></div></div>
+          </div>
+          <figcaption><span class="n">3</span><div><b>Dites oui : le dossier est à vous</b><span>Votre avocat vous rappelle et le calendrier démarre.</span></div></figcaption>
+        </figure>
+      </div>
+      <p class="screens-note">Écrans de la maquette, données fictives.</p>
+    </div>
+  </section>
+
+  <section class="wrap block" id="simulateur" aria-labelledby="sim-title">
+    <div class="sim">
+      <div class="sim-copy">
+        <span class="eyebrow">Le simulateur d'offre</span>
+        <h2 id="sim-title" style="font-size: clamp(32px, 4.4vw, 48px); line-height: 1.08">Ce que le tribunal retient vraiment.</h2>
+        <p>Comparez votre projet d'offre aux offres retenues dans des dossiers comparables. Vous verrez vite que l'emploi pèse plus que le prix : 73 % des offres retenues sont les mieux-disantes socialement.</p>
+        <p class="law">Analyse par tribunal et par type de dossier, jamais par juge (COJ, art. L. 111-13).</p>
+        <p class="sim-warn"><b>Outil indicatif :</b> il ne préjuge pas de la décision du tribunal et n'engage pas le cabinet. La base s'enrichit uniquement à partir de sources publiques, les jugements et les offres déposées au greffe. Les dossiers de nos clients n'y entrent jamais.</p>
+        <figure class="photo">
+          <img src="img/laser.webp" alt="Une machine de découpe laser projette des étincelles sur une tôle" loading="lazy" width="1400" height="933">
+          <figcaption><small>Photo : Clayton Cardinalli, Unsplash</small></figcaption>
+        </figure>
+      </div>
+      <div class="sim-card" aria-label="Exemple de simulation">
+        <div class="sim-row">
+          <label for="sim-sal">Salariés repris <output id="sim-sal-out" for="sim-sal">30 / 38</output></label>
+          <input id="sim-sal" type="range" min="0" max="38" value="30">
+          <p class="verdict" id="sim-sal-v"><span class="dot"></span><span></span></p>
+        </div>
+        <div class="sim-row">
+          <label for="sim-prix">Prix proposé <output id="sim-prix-out" for="sim-prix">380 k€</output></label>
+          <input id="sim-prix" type="range" min="100" max="900" step="20" value="380">
+          <p class="verdict" id="sim-prix-v"><span class="dot"></span><span></span></p>
+        </div>
+        <p class="note">Indicatif, n'engage pas le cabinet. Exemple : société de tôlerie, 38 salariés, CA 6,4 M€. Médianes fictives de démonstration : 74 % de l'effectif repris, prix égal à 5,8 % du CA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bento" id="avantages" aria-labelledby="bento-title">
+    <div class="wrap">
+      <span class="bn-eyebrow">Pensé pour le repreneur</span>
+      <h2 class="bn-title" id="bento-title">Le premier sur le bon dossier<span>avec une offre qui tient devant le tribunal</span></h2>
+
+      <div class="bn-grid">
+        <article class="bn-cell bn-top">
+          <div class="bn-text">
+            <h3>Rien ne part sans l'avocat</h3>
+            <p>Chaque matin à 7 h, l'agent lit le Bodacc et les appels d'offres des administrateurs, puis score chaque annonce. Un avocat du cabinet relit la fiche avant tout envoi.</p>
+          </div>
+          <div class="bn-illus bn-steps" aria-hidden="true">
+            <div class="bn-step dim"><span class="no">02</span><div><b>Score calculé</b><small>88 / 100 · Société A</small></div><span class="tick"></span></div>
+            <div class="bn-step on"><span class="rail"></span><span class="no">03</span><div><b>Relecture par l'avocat</b><small>Rien n'est encore envoyé</small></div><span class="bn-btn">Valider</span></div>
+            <div class="bn-step dim"><span class="no">04</span><div><b>Alerte envoyée</b><small>Mercredi · 8 h 14</small></div><span class="tick"></span></div>
+          </div>
+        </article>
+
+        <article class="bn-cell bn-top">
+          <div class="bn-text">
+            <h3>Un dossier, un seul repreneur</h3>
+            <p>Le premier oui verrouille le dossier à votre profit. Aucun autre abonné ne peut s'y positionner avec le cabinet.</p>
+          </div>
+          <div class="bn-illus bn-lock dots" aria-hidden="true">
+            <pre class="bn-glyphs">§ 6 4 2
+R J · J
++ 2 7 ✓</pre>
+            <svg viewBox="0 0 360 230" fill="none">
+              <defs>
+                <linearGradient id="bn-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9D3E6" stop-opacity=".55"/><stop offset="1" stop-color="#C9D3E6" stop-opacity="0"/></linearGradient>
+                <linearGradient id="bn-g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#26324D"/><stop offset="1" stop-color="#0C1322"/></linearGradient>
+                <radialGradient id="bn-g3" cx=".5" cy=".3" r=".7"><stop offset="0" stop-color="#C9D3E6" stop-opacity=".18"/><stop offset="1" stop-color="#C9D3E6" stop-opacity="0"/></radialGradient>
+              </defs>
+              <circle cx="180" cy="200" r="120" fill="url(#bn-g3)" stroke="url(#bn-g1)" stroke-width="1.2"/>
+              <rect x="92" y="84" width="176" height="146" rx="12" fill="url(#bn-g2)" stroke="#C9D3E6" stroke-opacity=".35"/>
+              <rect x="112" y="106" width="74" height="8" rx="4" fill="#C9D3E6" fill-opacity=".7"/>
+              <rect x="112" y="124" width="120" height="6" rx="3" fill="#C9D3E6" fill-opacity=".25"/>
+              <rect x="112" y="138" width="100" height="6" rx="3" fill="#C9D3E6" fill-opacity=".25"/>
+              <rect x="112" y="152" width="112" height="6" rx="3" fill="#C9D3E6" fill-opacity=".25"/>
+              <rect x="208" y="102" width="40" height="18" rx="6" fill="#1E7048"/>
+              <text x="228" y="115" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">88 %</text>
+              <path d="M222 150v-14a18 18 0 0 1 36 0v14" stroke="#C9D3E6" stroke-opacity=".8" stroke-width="7" stroke-linecap="round"/>
+              <rect x="208" y="148" width="64" height="54" rx="12" fill="#121B2E" stroke="#C9D3E6" stroke-opacity=".75" stroke-width="1.5"/>
+              <circle cx="240" cy="170" r="6" fill="#C9D3E6" fill-opacity=".85"/>
+              <rect x="237.5" y="172" width="5" height="14" rx="2.5" fill="#C9D3E6" fill-opacity=".85"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="bn-cell bn-top">
+          <div class="bn-text">
+            <h3>Un score que vous pouvez lire</h3>
+            <p>Les pondérations vous sont communiquées et chaque chiffre cite sa source. « Non trouvé » plutôt qu'une estimation.</p>
+          </div>
+          <div class="bn-illus dots" aria-hidden="true">
+            <table class="bn-table">
+              <thead><tr><th></th><th>Poids</th><th>Société A</th></tr></thead>
+              <tbody>
+                <tr><td>Secteur</td><td>30</td><td><span class="box ok">30</span></td></tr>
+                <tr><td>Zone</td><td>20</td><td><span class="box ok">18</span></td></tr>
+                <tr><td>Chiffre d'affaires</td><td>20</td><td><span class="box ok">20</span></td></tr>
+                <tr><td>Effectif</td><td>20</td><td><span class="box ok">20</span></td></tr>
+                <tr><td>Actifs</td><td>10</td><td><span class="box warn">!</span></td></tr>
+              </tbody>
+              <tfoot><tr><td>Total</td><td>100</td><td><span class="box total">88</span></td></tr></tfoot>
+            </table>
+          </div>
+        </article>
+
+        <article class="bn-cell bn-bottom">
+          <div class="bn-illus dots" aria-hidden="true">
+            <div class="bn-card">
+              <div class="bn-card-head"><span>Éligibilité · Société A</span><span><b>4</b> / 4</span></div>
+              <div class="bn-row"><span class="ico">D</span><span class="lbl">Dirigeants de la société</span><span class="tag ok">Aucun lien</span></div>
+              <div class="bn-row"><span class="ico">C</span><span class="lbl">Contrôleurs de la procédure</span><span class="tag ok">Aucun lien</span></div>
+              <div class="bn-row"><span class="ico">M</span><span class="lbl">Vos mandats sociaux</span><span class="tag">Déclarés</span></div>
+              <div class="bn-row fade"><span class="ico">F</span><span class="lbl">Liens familiaux</span><span class="tag">Déclarés</span></div>
+            </div>
+          </div>
+          <div class="bn-text">
+            <h3>Votre éligibilité vérifiée d'avance</h3>
+            <p>Avant chaque fiche, nous contrôlons que rien ne vous interdit de reprendre : dirigeants, contrôleurs, liens familiaux (C. com., art. L. 642-3).</p>
+          </div>
+        </article>
+
+        <article class="bn-cell bn-bottom">
+          <div class="bn-illus dots" aria-hidden="true">
+            <div class="bn-card">
+              <div class="bn-card-head"><span>Convention d'honoraires</span><span class="badge">Signée</span></div>
+              <div class="bn-flow">
+                <div class="node"><span class="sq"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg></span><b>Veille</b><small>250 € HT / mois</small></div>
+                <div class="link"><span class="mid">oui</span></div>
+                <div class="node"><span class="sq"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></span><b>Dossier</b><small>24 000 € HT</small></div>
+              </div>
+              <p class="bn-foot">+ 10 000 € HT seulement si votre offre est retenue</p>
+            </div>
+          </div>
+          <div class="bn-text">
+            <h3>Des honoraires connus d'avance</h3>
+            <p>Abonnement, forfait et honoraire de résultat sont fixés par écrit avant de commencer. L'honoraire de résultat ne vient jamais seul (loi de 1971, art. 10).</p>
+          </div>
+        </article>
+      </div>
+
+      <ul class="bn-more">
+        <li><b>Secret professionnel</b><span>Data rooms cloisonnées, jamais réutilisées pour un autre client ni pour entraîner un modèle.</span></li>
+        <li><b>Aucune analyse de juge</b><span>Aucune prédiction des pratiques d'un magistrat nommé (COJ, art. L. 111-13).</span></li>
+        <li><b>Hébergement souverain</b><span>Plateforme hébergée en France, sous le contrôle du cabinet ; une exécution de la veille par jour.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap block" id="cabinet" aria-labelledby="cabinet-title">
+    <div class="block-head">
+      <span class="eyebrow">Le cabinet</span>
+      <h2 id="cabinet-title">Cinq associés, un seul avocat référent par dossier.</h2>
+      <p>Chaque associé relit les alertes un jour par semaine, si bien que chaque jour ouvré est couvert. Votre dossier, lui, reste suivi par le même avocat du « oui » jusqu'au jugement.</p>
+    </div>
+    <ul class="team">
+        <li class="member">
+          <img src="img/portrait-flavie-hd.webp" alt="Portrait de Flavie Pacton" width="480" height="600" loading="lazy">
+          <div class="member-txt"><b><span class="ini">F</span>lavie Pacton</b><span>Avocate, responsable IA et données</span></div>
+        </li>
+        <li class="member">
+          <img src="img/portrait-louis.webp" alt="Portrait de Louis Rossi" width="480" height="600" loading="lazy">
+          <div class="member-txt"><b><span class="ini">L</span>ouis Rossi</b><span>Avocat en restructuring</span></div>
+        </li>
+        <li class="member">
+          <img src="img/portrait-olympe-hd.webp" alt="Portrait de Olympe Salles" width="480" height="600" loading="lazy">
+          <div class="member-txt"><b><span class="ini">O</span>lympe Salles</b><span>Avocate en droit social</span></div>
+        </li>
+        <li class="member">
+          <img src="img/portrait-raphael.webp" alt="Portrait de Raphaël Toledano" width="480" height="600" loading="lazy">
+          <div class="member-txt"><b><span class="ini">R</span>aphaël Toledano</b><span>Avocat, responsable du développement commercial, des finances et du pilotage</span></div>
+        </li>
+        <li class="member">
+          <img src="img/portrait-axelle.webp" alt="Portrait de Axelle Schembri" width="480" height="600" loading="lazy">
+          <div class="member-txt"><b><span class="ini">A</span>xelle Schembri</b><span>Avocate, responsable de la déontologie</span></div>
+        </li>
+    </ul>
+  </section>
+
+  <section class="wrap block" id="tarifs" aria-labelledby="tarifs-title">
+    <div class="block-head">
+      <span class="eyebrow">Tarifs</span>
+      <h2 id="tarifs-title">Trois temps, des prix connus d'avance.</h2>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <span class="eyebrow">Veille</span>
+        <span class="amount">250 €</span><span class="unit">HT par mois, sans engagement</span>
+        <ul><li>Profil de repreneur</li><li>Alertes relues par l'avocat</li><li>Fiches d'opportunité</li><li>Simulateur d'offre</li></ul>
+      </div>
+      <div class="price">
+        <span class="eyebrow">Dossier</span>
+        <span class="amount">24 000 €</span><span class="unit">HT, forfait en temps illimité</span>
+        <ul><li>Note d'analyse</li><li>Offre rédigée et signée</li><li>CSE et négociation</li><li>Actes de cession</li></ul>
+      </div>
+      <div class="price">
+        <span class="eyebrow">Résultat</span>
+        <span class="amount">10 000 €</span><span class="unit">HT, si votre offre est retenue</span>
+        <ul><li>Toujours en complément du forfait</li><li>Jamais seul : le pacte de quota litis est interdit</li></ul>
+      </div>
+    </div>
+    <p class="prices-foot">Convention d'honoraires écrite (loi du 31 décembre 1971, art. 10). À titre de repère, au taux horaire (environ 200 €), un dossier de 120 à 180 heures coûterait 24 000 à 36 000 € HT : le forfait n'est jamais plus cher, et il est prévisible.</p>
+    <div class="prices-cta">
+      <a class="btn" href="#inscription">Activer ma veille</a>
+      <span>Aucun paiement à l'inscription. Votre avocat vous rappelle d'abord.</span>
+    </div>
+  </section>
+
+  <section class="band" id="inscription" aria-labelledby="form-title">
+    <div class="wrap">
+      <div class="band-copy">
+        <span class="eyebrow">Inscription</span>
+        <h2 id="form-title">Activez votre veille de repreneur.</h2>
+        <p>Trois étapes, cinq minutes pour décrire l'entreprise que vous cherchez. Nous veillons ensuite pour vous, chaque matin.</p>
+        <ul>
+          <li>Une alerte sous 24 à 48 heures après la publication</li>
+          <li>Des fiches écrites pour un industriel, pas pour un juriste</li>
+          <li>Un avocat référent unique, du premier oui au jugement</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <form class="signup" id="signup" novalidate>
+          <ol class="stepper" aria-label="Étapes de l'inscription">
+            <li data-to="1"><span class="bar"></span><span class="lbl"><b>1</b>Vous</span></li>
+            <li data-to="2"><span class="bar"></span><span class="lbl"><b>2</b>Votre cible</span></li>
+            <li data-to="3"><span class="bar"></span><span class="lbl"><b>3</b>Validation</span></li>
+          </ol>
+          <p class="sr-only" id="step-live" aria-live="polite"></p>
+
+          <div class="step" data-step="1" role="group" aria-labelledby="st1-title">
+            <div class="step-head"><h3 id="st1-title">Vous</h3><p>Pour que votre avocat puisse vous recontacter.</p></div>
+            <div class="field"><label for="f-prenom">Prénom<span class="req">*</span></label><input id="f-prenom" name="prenom" autocomplete="given-name" placeholder="Paul" required></div>
+            <div class="field"><label for="f-nom">Nom<span class="req">*</span></label><input id="f-nom" name="nom" autocomplete="family-name" placeholder="Martin" required></div>
+            <div class="field full"><label for="f-email">Adresse e-mail professionnelle<span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="paul@entreprise.fr" required></div>
+            <div class="field"><label for="f-societe">Société<span class="req">*</span></label><input id="f-societe" name="societe" autocomplete="organization" placeholder="Mécanique du Loiret" required></div>
+            <div class="field"><label for="f-fonction">Fonction<span class="req">*</span></label><input id="f-fonction" name="fonction" autocomplete="organization-title" placeholder="Président" required></div>
+            <div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="06 12 34 56 78"></div>
+            <div class="field"><label for="f-profil">Votre profil<span class="req">*</span></label>
+              <select id="f-profil" name="profil" required>
+                <option value="">Sélectionner…</option>
+                <option>Dirigeant de PME ou d'ETI en croissance externe</option>
+                <option>Primo-repreneur</option>
+                <option>Repreneur étranger</option>
+                <option>Autre</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="step" data-step="2" role="group" aria-labelledby="st2-title" hidden>
+            <div class="step-head"><h3 id="st2-title">Votre cible</h3><p>Ces critères servent au tri et au score de chaque alerte.</p></div>
+            <div class="field full" id="fs-secteurs">
+              <span class="label" id="l-secteurs">Secteurs recherchés<span class="req">*</span></span>
+              <div class="chips" role="group" aria-labelledby="l-secteurs" id="chips">
+                <button type="button" class="chip" aria-pressed="false">Mécanique de précision</button>
+                <button type="button" class="chip" aria-pressed="false">Tôlerie</button>
+                <button type="button" class="chip" aria-pressed="false">Usinage</button>
+                <button type="button" class="chip" aria-pressed="false">Traitement de surface</button>
+                <button type="button" class="chip add" id="chip-add">+ Ajouter</button>
+              </div>
+              <div class="chip-new" id="chip-new" hidden>
+                <input id="f-secteur-new" placeholder="Autre secteur, par exemple Chaudronnerie" aria-label="Autre secteur">
+                <button type="button" class="chip" id="chip-ok">Ajouter</button>
+              </div>
+            </div>
+            <div class="field full"><label for="f-zone">Zone géographique<span class="req">*</span></label><input id="f-zone" name="zone" placeholder="150 km autour d'Orléans (45)" required></div>
+            <div class="field"><label for="f-ca">Chiffre d'affaires<span class="req">*</span></label><input id="f-ca" name="ca" placeholder="3 à 10 M€" required></div>
+            <div class="field"><label for="f-effectif">Effectif<span class="req">*</span></label><input id="f-effectif" name="effectif" placeholder="20 à 80 salariés" required></div>
+            <div class="field full"><label for="f-fonds">Fonds propres mobilisables<span class="req">*</span></label><input id="f-fonds" name="fonds" placeholder="1,5 M€" required></div>
+          </div>
+
+          <div class="step" data-step="3" role="group" aria-labelledby="st3-title" hidden>
+            <div class="step-head"><h3 id="st3-title">Validation</h3><p>Vérifiez votre profil, précisez-le si besoin, puis activez votre veille.</p></div>
+            <dl class="recap full" id="recap"></dl>
+            <div class="field full"><label for="f-actifs">Ce que vous voulez reprendre <span class="opt">facultatif</span></label><input id="f-actifs" name="actifs" placeholder="Fonds de commerce, parc machines, salariés"></div>
+            <div class="field full"><label for="f-exclus">Critères éliminatoires <span class="opt">facultatif</span></label><input id="f-exclus" name="exclus" placeholder="Liquidation sans activité ; hors Centre-Val de Loire"></div>
+            <label class="check boxed" id="c-liens"><input id="f-liens" name="liens" type="checkbox"><span>Je déclare mes liens familiaux et mes mandats pour le contrôle d'éligibilité (C. com., art. L. 642-3).<span class="req">*</span></span></label>
+            <label class="check" id="c-rgpd"><input id="f-rgpd" name="rgpd" type="checkbox"><span>J'accepte que FLORA Avocats utilise ces informations pour me recontacter et préparer mon profil de repreneur. Je peux retirer mon accord à tout moment.<span class="req">*</span></span></label>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn btn-ghost" type="button" id="f-back" hidden>Retour</button>
+            <button class="btn" type="submit" id="f-submit">Continuer</button>
+          </div>
+          <p class="form-foot">Aucun paiement à l'inscription. Votre avocat vous rappelle pour valider votre profil.</p>
+        </form>
+        <div class="done" id="done" hidden>
+          <span class="eyebrow">Inscription reçue</span>
+          <h3 id="done-title" tabindex="-1">Merci.</h3>
+          <p>Un avocat du cabinet vous contacte sous 48 heures pour affiner votre profil et activer votre veille.</p>
+          <p class="demo" id="done-demo" hidden>Site de démonstration : aucune donnée n'est enregistrée.</p>
+          <a class="btn" href="#espace" style="justify-self: start">Accéder à mon espace client</a>
+        </div>
+      </div>
+    </div>
+    <p class="band-after">Projet de cabinet présenté au LAB EFB 2026. Chiffres de marché sourcés, exemples de dossiers fictifs.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>FLORA Avocats · De l'alerte à la reprise</span>
+    <span>Axelle Schembri · Olympe Salles · Flavie Pacton · Louis Rossi · Raphaël Toledano</span>
+    <span>Photos : Cemrecan Yurtman, Daulet Turubayev, Clayton Cardinalli, Shavr IK (licence Unsplash)</span>
+  </div>
+</footer>
+</div>
+
+<div id="espace" hidden>
+  <header class="esp-top">
+    <div class="wrap esp-top-in">
+      <div class="esp-brand"><a class="logo" href="#top">FLORA <small>Avocats</small></a><span class="esp-badge">Espace client</span></div>
+      <div class="esp-user"><span id="esp-who"></span><a class="esp-back" href="#top">Retour au site</a></div>
+    </div>
+  </header>
+  <div class="wrap esp-wrap">
+    <p class="esp-demo" id="esp-demo" hidden><span>Compte de démonstration · données fictives</span><button type="button" id="esp-quit">Quitter la démonstration</button></p>
+    <div id="esp-gate"></div>
+    <div class="esp-app" id="esp-app" hidden>
+      <nav class="esp-nav" aria-label="Espace client">
+        <button type="button" data-v="alertes">Alertes<span class="nb" id="esp-nb"></span></button>
+        <button type="button" data-v="dossiers">Mes dossiers</button>
+        <button type="button" data-v="profil">Mon profil</button>
+        <button type="button" data-v="preferences">Préférences d'alerte</button>
+      </nav>
+      <section class="esp-main" id="esp-main" tabindex="-1"></section>
+    </div>
+  </div>
+  <div class="esp-modal" id="esp-modal" hidden>
+    <div class="esp-dialog" role="dialog" aria-modal="true" aria-labelledby="esp-modal-t">
+      <h3 id="esp-modal-t"></h3>
+      <ul id="esp-modal-list"></ul>
+      <div class="esp-dialog-act">
+        <button type="button" class="btn btn-ghost" id="esp-modal-no">Annuler</button>
+        <button type="button" class="btn" id="esp-modal-yes">Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Simulateur : mêmes seuils que la maquette (médianes fictives).
+  var EFF = 38, CA = 6400;
+  var sal = document.getElementById('sim-sal'), prix = document.getElementById('sim-prix');
+  function verdict(el, ok, okTxt, koTxt) {
+    el.className = 'verdict ' + (ok ? 'ok' : 'ko');
+    el.lastElementChild.textContent = ok ? okTxt : koTxt;
+  }
+  function sim() {
+    var s = +sal.value, p = +prix.value;
+    var empPct = Math.round(s / EFF * 100), prixPct = p / CA * 100;
+    document.getElementById('sim-sal-out').textContent = s + ' / ' + EFF;
+    document.getElementById('sim-prix-out').textContent = p + ' k€';
+    verdict(document.getElementById('sim-sal-v'), empPct >= 74,
+      empPct + ' % de l’effectif : au-dessus de la médiane des offres retenues',
+      empPct + ' % de l’effectif : offre fragile face à une offre concurrente');
+    verdict(document.getElementById('sim-prix-v'), prixPct >= 5.8,
+      prixPct.toFixed(1).replace('.', ',') + ' % du CA : dans la fourchette des offres retenues',
+      prixPct.toFixed(1).replace('.', ',') + ' % du CA : sous la médiane des offres retenues');
+  }
+  sal.addEventListener('input', sim); prix.addEventListener('input', sim); sim();
+
+  // Stockage des inscriptions (capability db), avec repli si indisponible.
+  var store = { db: null, uid: null };
+  var ready = (async function () {
+    if (!window.claude || !window.claude.use) return;
+    try {
+      store.db = await window.claude.use('db');
+      var user = await window.claude.use('user');
+      if (user) store.uid = await user.id();
+    } catch (e) { store.db = null; }
+  })();
+
+  var form = document.getElementById('signup');
+
+  // Secteurs : pastilles à sélectionner, plus un secteur libre.
+  var chips = document.getElementById('chips'), fsSect = document.getElementById('fs-secteurs');
+  var chipNew = document.getElementById('chip-new'), newInput = document.getElementById('f-secteur-new');
+  function secteurs() {
+    return [].slice.call(chips.querySelectorAll('.chip[aria-pressed="true"]')).map(function (c) { return c.textContent; });
+  }
+  function setSectErr(msg) {
+    var old = fsSect.querySelector('.err'); if (old) old.remove();
+    fsSect.classList.toggle('invalid', !!msg);
+    if (msg) { var e = document.createElement('span'); e.className = 'err'; e.textContent = msg; fsSect.appendChild(e); }
+  }
+  chips.addEventListener('click', function (e) {
+    var c = e.target.closest('.chip'); if (!c) return;
+    if (c.id === 'chip-add') { chipNew.hidden = false; newInput.focus(); return; }
+    c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    if (secteurs().length) setSectErr('');
+  });
+  function addSecteur() {
+    var v = newInput.value.trim(); if (!v) { newInput.focus(); return; }
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed', 'true'); b.textContent = v;
+    chips.insertBefore(b, document.getElementById('chip-add'));
+    newInput.value = ''; chipNew.hidden = true; setSectErr('');
+  }
+  document.getElementById('chip-ok').addEventListener('click', addSecteur);
+  newInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); addSecteur(); } });
+  function setErr(field, msg) {
+    var wrap = field.closest('.field');
+    var old = wrap.querySelector('.err'); if (old) old.remove();
+    wrap.classList.toggle('invalid', !!msg);
+    if (msg) { var e = document.createElement('span'); e.className = 'err'; e.textContent = msg; wrap.appendChild(e); }
+  }
+  // Formulaire en trois étapes : chaque étape est validée avant de passer à la suivante.
+  var STEPS = { 1: ['prenom', 'nom', 'email', 'societe', 'fonction', 'profil'], 2: ['zone', 'ca', 'effectif', 'fonds'], 3: [] };
+  var NAMES = { 1: 'Vous', 2: 'Votre cible', 3: 'Validation' };
+  var step = 1, maxStep = 1;
+  var backBtn = document.getElementById('f-back'), nextBtn = document.getElementById('f-submit');
+  var stepper = form.querySelectorAll('.stepper li');
+
+  // Exercice LAB : aucun champ ne bloque le passage à l'étape suivante.
+  // Un champ laissé vide reprend l'exemple de Paul (le texte grisé du champ).
+  function validate(n) {
+    var first = null;
+    STEPS[n].forEach(function (name) {
+      var f = form.elements[name], v = f.value.trim(), msg = '';
+      if (v && name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'Saisissez une adresse e-mail valide, par exemple paul@entreprise.fr.';
+      setErr(f, msg); if (msg && !first) first = f;
+    });
+    if (n === 2) setSectErr('');
+    if (n === 3) ['liens', 'rgpd'].forEach(function (name) { document.getElementById('c-' + name).classList.remove('invalid'); });
+    return first;
+  }
+
+  function val(name) {
+    var f = form.elements[name], v = f.value.trim();
+    if (v) return v;
+    if (name === 'profil') return "Dirigeant de PME ou d'ETI en croissance externe";
+    return (f.placeholder || '').trim();
+  }
+  function secteursOuExemple() { var s = secteurs(); return s.length ? s : ['Mécanique de précision', 'Tôlerie']; }
+  function renderRecap() {
+    var rows = [
+      ['Contact', val('prenom') + ' ' + val('nom') + ' · ' + val('fonction') + ', ' + val('societe'), 1],
+      ['Profil', val('profil'), 1],
+      ['Secteurs', secteursOuExemple().join(', '), 2],
+      ['Zone', val('zone'), 2],
+      ['Taille visée', 'CA ' + val('ca') + ' · ' + val('effectif'), 2],
+      ['Fonds propres', val('fonds'), 2]
+    ];
+    var dl = document.getElementById('recap'); dl.textContent = '';
+    rows.forEach(function (r) {
+      var div = document.createElement('div');
+      var dt = document.createElement('dt'); dt.textContent = r[0];
+      var dd = document.createElement('dd'); dd.textContent = r[1];
+      var edit = document.createElement('button');
+      edit.type = 'button'; edit.className = 'recap-edit'; edit.textContent = 'Modifier';
+      edit.setAttribute('aria-label', 'Modifier : ' + r[0]);
+      edit.addEventListener('click', function () { show(r[2], true); });
+      div.appendChild(dt); div.appendChild(dd); div.appendChild(edit); dl.appendChild(div);
+    });
+  }
+
+  function show(n, focusFirst) {
+    step = n; maxStep = Math.max(maxStep, n);
+    form.querySelectorAll('.step').forEach(function (s) { s.hidden = +s.dataset.step !== n; });
+    stepper.forEach(function (li, i) {
+      var k = i + 1;
+      li.className = k < n ? 'done' : (k === n ? 'on' : '');
+      if (k === n) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+    });
+    backBtn.hidden = n === 1;
+    nextBtn.textContent = n === 3 ? 'Activer ma veille' : 'Continuer';
+    if (n === 3) renderRecap();
+    document.getElementById('step-live').textContent = 'Étape ' + n + ' sur 3 : ' + NAMES[n];
+    var card = document.querySelector('#inscription .card');
+    if (card.getBoundingClientRect().top < 0) card.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    if (focusFirst) {
+      var target = form.querySelector('.step[data-step="' + n + '"] input, .step[data-step="' + n + '"] select, .step[data-step="' + n + '"] .chip');
+      if (target) target.focus({ preventScroll: true });
+    }
+  }
+  backBtn.addEventListener('click', function () { show(step - 1, true); });
+
+  form.addEventListener('input', function (e) {
+    var f = e.target; if (f.closest('.field.invalid') && f.value.trim()) setErr(f, '');
+    if (f.name === 'rgpd' || f.name === 'liens') document.getElementById('c-' + f.name).classList.toggle('invalid', !f.checked);
+  });
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var bad = validate(step); if (bad) { bad.focus(); return; }
+    if (step < 3) { show(step + 1, true); return; }
+    for (var k = 1; k <= 2; k++) { if (validate(k)) { show(k, true); return; } }
+    nextBtn.disabled = true; nextBtn.textContent = 'Enregistrement…'; backBtn.disabled = true;
+    var data = {};
+    STEPS[1].concat(STEPS[2], ['tel', 'actifs', 'exclus']).forEach(function (n) { data[n] = val(n); });
+    data.secteurs = secteursOuExemple();
+    data.declarationLiens = form.elements.liens.checked;
+    data.consentement = form.elements.rgpd.checked;
+    data.date = new Date().toISOString();
+    var saved = false;
+    try {
+      await ready;
+      if (store.db && store.uid) { await store.db.doc('signups/' + store.uid).set(data); saved = true; }
+    } catch (err) { saved = false; }
+    document.getElementById('done-title').textContent = 'Merci, ' + data.prenom + '.';
+    document.getElementById('done-demo').hidden = saved;
+    esp.mode = null;
+    form.hidden = true;
+    document.getElementById('done').hidden = false;
+    var card = document.querySelector('#inscription .card');
+    card.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    document.getElementById('done-title').focus({ preventScroll: true });
+  });
+  show(1, false);
+
+  // ===== Espace client =====
+  // Mode « real » : profil lu dans signups/<id>, alertes dans la collection alerts,
+  // décisions dans decisions/<id>, exclusivité dans locks/<alerte>. Mode « demo » : données d'exemple en mémoire.
+  var DEMO_PROFIL = {
+    prenom: 'Paul', nom: 'Martin', email: 'paul@entreprise.fr', societe: 'Mécanique du Loiret', fonction: 'Président',
+    profil: "Dirigeant de PME ou d'ETI en croissance externe", secteurs: ['Mécanique de précision', 'Tôlerie'],
+    zone: "150 km autour d'Orléans (45)", ca: '3 à 10 M€', effectif: '20 à 80 salariés', fonds: '1,5 M€',
+    actifs: 'Fonds de commerce, parc machines, salariés', exclus: 'Liquidation sans activité ; hors Centre-Val de Loire',
+    preferences: { email: true, sms: false, app: true, frequence: 'immediat' }
+  };
+  var DEMO_ALERTES = [
+    { id: 'societe-a', nom: 'Société A', secteur: 'Tôlerie industrielle', lieu: 'Eure-et-Loir (28)', effectif: '38 salariés', ca: '6,4 M€',
+      procedure: 'Redressement judiciaire', tribunal: 'TC de Chartres', administrateur: 'Me X.', delai: 'J+27', score: 88, publie: 'Mercredi · 8 h 14', nouveau: true,
+      pourquoi: [[1, 'Secteur', 'tôlerie, dans votre liste'], [1, 'Zone', '95 km de votre site'], [1, "Chiffre d'affaires", '6,4 M€ (dernier exercice déposé)'], [1, 'Effectif', '38 salariés'], [0, 'Actifs', 'parc machines à expertiser']],
+      attention: ["Un client représente environ 40 % du chiffre d'affaires", 'Bail commercial du site : durée restante à vérifier', 'Deux lignes de pliage sous crédit-bail'],
+      eligibilite: 'Aucun lien détecté entre vous et les dirigeants ou contrôleurs de la procédure.',
+      pieces: "Cahier des charges de l'administrateur, accès à la data room (après engagement de confidentialité), liste du personnel, contrats en cours." },
+    { id: 'societe-b', nom: 'Société B', secteur: 'Usinage', lieu: 'Cher (18)', effectif: '52 salariés', ca: '7,1 M€',
+      procedure: "Liquidation avec maintien d'activité", tribunal: 'TC de Bourges', administrateur: 'Me Y.', delai: 'J+12', score: 74, publie: 'Lundi · 9 h 02',
+      pourquoi: [[1, 'Secteur', 'usinage, dans votre liste'], [1, 'Zone', '120 km de votre site'], [1, "Chiffre d'affaires", '7,1 M€'], [1, 'Effectif', '52 salariés'], [0, 'Procédure', "liquidation : délais courts, activité maintenue temporairement"]],
+      attention: ['Délai de dépôt des offres très court', 'Bâtiment en location : bailleur à consulter', 'Carnet de commandes en baisse sur le dernier exercice'],
+      eligibilite: 'Aucun lien détecté entre vous et les dirigeants ou contrôleurs de la procédure.',
+      pieces: "Cahier des charges du liquidateur, inventaire des actifs, liste du personnel." },
+    { id: 'societe-c', nom: 'Société C', secteur: 'Traitement de surface', lieu: 'Indre (36)', effectif: '24 salariés', ca: '2,9 M€',
+      procedure: 'Redressement judiciaire', tribunal: 'TC de Châteauroux', administrateur: 'Me Z.', delai: "Appel d'offres non publié", score: 61, publie: 'Lundi · 7 h 48',
+      pourquoi: [[0, 'Secteur', 'traitement de surface, proche de votre liste'], [1, 'Zone', '140 km de votre site'], [0, "Chiffre d'affaires", '2,9 M€, juste sous votre fourchette'], [1, 'Effectif', '24 salariés']],
+      attention: ['Autorisation ICPE à transférer au repreneur', 'Mise aux normes des effluents à chiffrer', "L'administrateur n'a pas encore lancé l'appel d'offres"],
+      eligibilite: 'Aucun lien détecté entre vous et les dirigeants ou contrôleurs de la procédure.',
+      pieces: "À demander dès la publication de l'appel d'offres." }
+  ];
+  var ETAPES = [
+    ['Vous avez dit oui', 'Convention d’honoraires à signer'],
+    ['Confidentialité et data room', 'Engagement transmis à l’administrateur'],
+    ['Note d’analyse de l’avocat', 'Sous 48 heures après l’accès à la data room'],
+    ['Prévisionnel avec l’expert-comptable', 'Activité et financement (C. com., art. L. 642-2)'],
+    ['Rencontre avec le CSE', 'Préparée et accompagnée par votre avocat'],
+    ['Dépôt de l’offre signée', 'Avant la date limite'],
+    ['Audience et jugement', 'Plaidoirie, actes de cession']
+  ];
+  var esp = { mode: null, uid: null, profil: null, alertes: [], choix: {}, view: 'alertes', alerte: null, loading: false };
+  var site = document.getElementById('site'), espRoot = document.getElementById('espace');
+  var gate = document.getElementById('esp-gate'), app = document.getElementById('esp-app'), main = document.getElementById('esp-main');
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function btn(label, cls, fn) { var b = el('button', cls || 'btn', label); b.type = 'button'; b.addEventListener('click', fn); return b; }
+  function clone(o) { return JSON.parse(JSON.stringify(o || {})); }
+  function dateFr(iso) { try { return new Date(iso).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' }); } catch (e) { return ''; } }
+
+  function route() {
+    var isDemo = location.hash === '#demo';
+    var inEsp = location.hash === '#espace' || isDemo;
+    site.hidden = inEsp; espRoot.hidden = !inEsp;
+    if (inEsp) { window.scrollTo(0, 0); if (isDemo) startDemo(); else enterEspace(); }
+  }
+  window.addEventListener('hashchange', route);
+
+  function showGate(kind) {
+    app.hidden = true; document.getElementById('esp-demo').hidden = true; gate.hidden = false; gate.textContent = '';
+    document.getElementById('esp-who').textContent = '';
+    var card = el('div', 'esp-gate-card');
+    if (kind === 'loading') { card.appendChild(el('p', 'esp-muted', 'Connexion à votre espace…')); gate.appendChild(card); return; }
+    card.appendChild(el('span', 'eyebrow', 'Espace client'));
+    card.appendChild(el('h1', null, 'Connexion à votre espace'));
+    if (kind === 'noprofile') {
+      card.appendChild(el('p', null, 'Aucun profil de repreneur n’est encore associé à votre compte. Créez-le en trois étapes : votre espace s’ouvrira ensuite automatiquement.'));
+    } else {
+      card.appendChild(el('p', null, 'Connectez-vous avec le lien reçu par e-mail lors de votre inscription. Pas encore inscrit ? Créez votre profil de repreneur.'));
+    }
+    var act = el('div', 'esp-gate-act');
+    var create = el('a', 'btn', 'Créer mon profil'); create.href = '#inscription'; act.appendChild(create);
+    act.appendChild(btn('Explorer le compte de démonstration', 'btn btn-ghost', startDemo));
+    card.appendChild(act);
+    card.appendChild(el('p', 'esp-note', 'Dans la version finale, vous vous connectez avec un lien à usage unique reçu par e-mail, sans mot de passe. L’appareil est reconnu pendant 30 jours.'));
+    gate.appendChild(card);
+  }
+
+  async function enterEspace() {
+    if (esp.mode) { renderApp(); return; }
+    if (esp.loading) return;
+    esp.loading = true; showGate('loading');
+    var timedOut = false;
+    var timer = setTimeout(function () { timedOut = true; esp.loading = false; showGate('nodb'); }, 10000);
+    try {
+      await ready;
+      if (!store.db || !store.uid) throw new Error('no-db');
+      var snap = await store.db.doc('signups/' + store.uid).get();
+      if (!snap.exists) { clearTimeout(timer); esp.loading = false; if (!timedOut) showGate('noprofile'); return; }
+      var dec = await store.db.doc('decisions/' + store.uid).get();
+      var al = await store.db.collection('alerts').get();
+      clearTimeout(timer); if (timedOut) return;
+      esp.mode = 'real'; esp.uid = store.uid; esp.profil = clone(snap.data());
+      esp.choix = dec.exists ? clone(dec.data().choix) : {};
+      esp.alertes = al.docs.map(function (d) { return Object.assign({ id: d.id }, clone(d.data())); }).sort(function (p, q) { return (q.score || 0) - (p.score || 0); });
+    } catch (e) {
+      clearTimeout(timer); esp.loading = false; if (!timedOut) showGate('nodb'); return;
+    }
+    esp.loading = false; esp.view = 'alertes'; esp.alerte = null; renderApp();
+  }
+  function startDemo() {
+    esp.mode = 'demo'; esp.uid = null; esp.profil = clone(DEMO_PROFIL); esp.alertes = clone(DEMO_ALERTES); esp.choix = {};
+    esp.view = 'alertes'; esp.alerte = null; renderApp();
+  }
+  document.getElementById('esp-quit').addEventListener('click', function () { esp.mode = null; location.hash = 'top'; });
+
+  app.querySelectorAll('.esp-nav button').forEach(function (b) {
+    b.addEventListener('click', function () { esp.view = b.dataset.v; esp.alerte = null; renderApp(); main.focus({ preventScroll: true }); });
+  });
+
+  function statut(id) { return esp.choix[id] && esp.choix[id].statut; }
+  var STATUTS = { oui: ['Dossier réservé', 'ok'], attente: ['Liste d’attente', 'wait'], non: ['Classée', 'off'] };
+
+  function renderApp() {
+    gate.hidden = true; app.hidden = false;
+    document.getElementById('esp-demo').hidden = esp.mode !== 'demo';
+    document.getElementById('esp-who').textContent = (esp.profil.prenom || '') + ' ' + (esp.profil.nom || '');
+    var actives = esp.alertes.filter(function (a) { return !statut(a.id); }).length;
+    document.getElementById('esp-nb').textContent = actives ? String(actives) : '';
+    app.querySelectorAll('.esp-nav button').forEach(function (b) {
+      if (b.dataset.v === esp.view) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
+    main.textContent = '';
+    if (esp.view === 'alertes') esp.alerte ? viewFiche(esp.alerte) : viewAlertes();
+    else if (esp.view === 'dossiers') viewDossiers();
+    else if (esp.view === 'profil') viewProfil(false);
+    else viewPreferences();
+  }
+
+  function head(title, sub) {
+    var h = el('div', 'esp-head'); h.appendChild(el('h2', null, title)); if (sub) h.appendChild(el('p', null, sub)); main.appendChild(h);
+  }
+
+  function viewAlertes() {
+    head('Bonjour ' + (esp.profil.prenom || ''), esp.alertes.length
+      ? esp.alertes.length + ' opportunités correspondent à votre profil. Chacune a été relue par un avocat du cabinet.'
+      : '');
+    var info = el('p', 'esp-info', 'Vous recevez chaque alerte par e-mail avec l’essentiel. La fiche complète n’est consultable qu’ici, dans votre espace sécurisé.');
+    main.appendChild(info);
+    if (!esp.alertes.length) {
+      var empty = el('div', 'esp-empty');
+      empty.appendChild(el('b', null, 'Votre veille est active.'));
+      empty.appendChild(el('p', null, 'Les premières alertes arrivent sous 24 à 48 heures après une publication qui correspond à votre profil. Vous serez prévenu par e-mail.'));
+      main.appendChild(empty); return;
+    }
+    var list = el('div', 'esp-list');
+    esp.alertes.forEach(function (a) {
+      var s = statut(a.id);
+      var card = el('button', 'esp-card' + (!s && a.nouveau ? ' hl' : '') + (s === 'non' ? ' dim' : ''));
+      card.type = 'button';
+      var r1 = el('span', 'row');
+      var t = el('span', 'ttl'); t.appendChild(el('b', null, a.nom + ' · ' + a.secteur));
+      t.appendChild(el('small', null, a.publie || '')); r1.appendChild(t);
+      r1.appendChild(el('span', 'score' + (a.score >= 80 ? ' top' : ''), a.score + ' %'));
+      card.appendChild(r1);
+      var bar = el('span', 'track'); var fill = el('i'); fill.style.width = Math.max(0, Math.min(100, a.score)) + '%'; bar.appendChild(fill); card.appendChild(bar);
+      var meta = el('span', 'meta');
+      [a.lieu, a.effectif, 'CA ' + a.ca, a.procedure].forEach(function (m) { meta.appendChild(el('span', null, m)); });
+      card.appendChild(meta);
+      var foot = el('span', 'foot');
+      foot.appendChild(el('span', 'dl', /^J\+/.test(a.delai) ? 'Offres avant ' + a.delai : a.delai));
+      if (s) foot.appendChild(el('span', 'st ' + STATUTS[s][1], STATUTS[s][0]));
+      else foot.appendChild(el('span', 'go', a.nouveau ? 'Nouveau · voir la fiche →' : 'Voir la fiche →'));
+      card.appendChild(foot);
+      if (a.exemple) card.appendChild(el('span', 'ex', 'Exemple'));
+      card.addEventListener('click', function () { esp.alerte = a; renderApp(); window.scrollTo(0, 0); });
+      list.appendChild(card);
+    });
+    main.appendChild(list);
+  }
+
+  function section(title, body) { var s = el('section', 'esp-sec'); s.appendChild(el('h3', null, title)); s.appendChild(body); return s; }
+
+  function viewFiche(a) {
+    main.appendChild(btn('← Mes alertes', 'esp-backlink', function () { esp.alerte = null; renderApp(); }));
+    var top = el('div', 'esp-fiche-top');
+    var tl = el('div'); tl.appendChild(el('h2', null, a.nom)); tl.appendChild(el('p', null, a.secteur + ' · ' + a.lieu));
+    tl.appendChild(el('span', 'esp-read', 'Relue par un avocat du cabinet'));
+    top.appendChild(tl);
+    var sc = el('div', 'esp-big'); sc.appendChild(el('b', null, a.score + ' %')); sc.appendChild(el('small', null, 'adéquation')); top.appendChild(sc);
+    main.appendChild(top);
+    var grid = el('div', 'esp-fiche');
+    var kv = el('div', 'kv');
+    [['Procédure', a.procedure], ['Tribunal', a.tribunal], ['Administrateur', a.administrateur], ['Date limite des offres', a.delai]].forEach(function (p, i) {
+      var c = el('span'); c.appendChild(el('small', null, p[0])); c.appendChild(el('b', i === 3 ? 'warn' : null, p[1])); kv.appendChild(c);
+    });
+    grid.appendChild(section('La procédure', kv));
+    var ul = el('ul', 'chk');
+    (a.pourquoi || []).forEach(function (p) {
+      // Une ligne est soit [ok, critère, texte] (exemples intégrés), soit {ok, critere, texte} (base).
+      var ok = Array.isArray(p) ? p[0] : p.ok, crit = Array.isArray(p) ? p[1] : p.critere, txt = Array.isArray(p) ? p[2] : p.texte;
+      var li = el('li'); li.appendChild(el('span', ok ? 'y' : 'w', ok ? '✓' : '!'));
+      var tx = el('span'); tx.appendChild(el('b', null, crit)); tx.appendChild(document.createTextNode(' : ' + txt)); li.appendChild(tx); ul.appendChild(li);
+    });
+    grid.appendChild(section('Pourquoi elle vous correspond', ul));
+    var at = el('ul', 'bullets'); (a.attention || []).forEach(function (x) { at.appendChild(el('li', null, x)); });
+    grid.appendChild(section('Points d’attention', at));
+    grid.appendChild(section('Éligibilité (C. com., art. L. 642-3)', el('p', null, a.eligibilite || '')));
+    grid.appendChild(section('Pièces à demander', el('p', null, a.pieces || '')));
+    main.appendChild(grid);
+    main.appendChild(el('p', 'esp-src', 'Sources : Bodacc, RNE, comptes déposés. ' + (a.exemple || esp.mode === 'demo' ? 'Données fictives.' : '')));
+    main.appendChild(decision(a));
+  }
+
+  function decision(a) {
+    var box = el('div', 'esp-decide'), s = statut(a.id);
+    if (s === 'oui') {
+      box.classList.add('ok');
+      box.appendChild(el('p', null, 'Ce dossier vous est réservé depuis le ' + dateFr(esp.choix[a.id].date) + '. Votre avocat référent vous rappelle sous 24 heures.'));
+      box.appendChild(btn('Voir le dossier', 'btn', function () { esp.view = 'dossiers'; esp.alerte = null; renderApp(); }));
+    } else if (s === 'attente') {
+      box.classList.add('wait');
+      box.appendChild(el('p', null, 'Un autre abonné s’est positionné en premier : le cabinet ne peut pas défendre deux offres concurrentes. Vous êtes en liste d’attente et votre avocat vous prévient si le dossier se libère.'));
+    } else if (s === 'non') {
+      box.appendChild(el('p', null, 'Vous avez classé cette opportunité. La veille continue, sans frais.'));
+      box.appendChild(btn('Revenir sur ma décision', 'btn btn-ghost', function () { saveChoix(a.id, null).then(renderApp); }));
+    } else {
+      box.appendChild(el('p', null, 'Voulez-vous vous positionner sur cette entreprise ?'));
+      var act = el('div', 'esp-decide-act');
+      act.appendChild(btn('Non, classer', 'btn btn-ghost', function () { saveChoix(a.id, 'non').then(renderApp); }));
+      act.appendChild(btn('Oui, je me positionne', 'btn', function () { confirmOui(a); }));
+      box.appendChild(act);
+    }
+    return box;
+  }
+
+  var modal = document.getElementById('esp-modal'), modalYes = document.getElementById('esp-modal-yes'), pending = null;
+  function confirmOui(a) {
+    pending = a;
+    document.getElementById('esp-modal-t').textContent = 'Vous positionner sur la ' + a.nom.replace(/^Société/, 'société') + ' ?';
+    var ul = document.getElementById('esp-modal-list'); ul.textContent = '';
+    ['Le dossier vous est réservé : aucun autre abonné ne pourra s’y positionner avec le cabinet.',
+     'Forfait dossier : 24 000 € HT, prévu par une convention d’honoraires écrite.',
+     'Honoraire de résultat : 10 000 € HT, seulement si votre offre est retenue.'].forEach(function (t) { ul.appendChild(el('li', null, t)); });
+    modal.hidden = false; document.getElementById('esp-modal-no').focus();
+  }
+  function closeModal() { modal.hidden = true; pending = null; }
+  document.getElementById('esp-modal-no').addEventListener('click', closeModal);
+  modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+  modalYes.addEventListener('click', async function () {
+    var a = pending; if (!a) return;
+    modalYes.disabled = true; modalYes.textContent = 'Enregistrement…';
+    var s = 'oui';
+    try {
+      if (esp.mode === 'real') {
+        var ref = store.db.doc('locks/' + a.id), lock = await ref.get();
+        if (lock.exists && lock.data().par !== esp.uid) s = 'attente';
+        else if (!lock.exists) await ref.set({ par: esp.uid, date: new Date().toISOString() });
+      }
+      await saveChoix(a.id, s);
+    } catch (e) { flash('Votre choix n’a pas pu être enregistré. Réessayez dans un instant.'); }
+    modalYes.disabled = false; modalYes.textContent = 'Confirmer';
+    closeModal(); renderApp();
+  });
+
+  async function saveChoix(id, s) {
+    var next = clone(esp.choix);
+    if (s) next[id] = { statut: s, date: new Date().toISOString() }; else delete next[id];
+    if (esp.mode === 'real') {
+      try { await store.db.doc('decisions/' + esp.uid).set({ choix: next }); }
+      catch (e) { flash('Votre choix n’a pas pu être enregistré. Réessayez dans un instant.'); return; }
+    }
+    esp.choix = next;
+  }
+
+  function flash(msg) {
+    var f = el('p', 'esp-flash', msg); f.setAttribute('role', 'status');
+    main.insertBefore(f, main.firstChild);
+    setTimeout(function () { f.remove(); }, 5000);
+  }
+
+  function viewDossiers() {
+    head('Mes dossiers', 'Chaque oui ouvre un dossier suivi par votre avocat référent, jusqu’à l’audience.');
+    var mine = esp.alertes.filter(function (a) { var s = statut(a.id); return s === 'oui' || s === 'attente'; });
+    if (!mine.length) {
+      var empty = el('div', 'esp-empty');
+      empty.appendChild(el('b', null, 'Aucun dossier en cours.'));
+      empty.appendChild(el('p', null, 'Quand vous dites oui à une opportunité, le dossier vous est réservé et apparaît ici avec son calendrier.'));
+      empty.appendChild(btn('Voir mes alertes', 'btn btn-ghost', function () { esp.view = 'alertes'; renderApp(); }));
+      main.appendChild(empty); return;
+    }
+    mine.forEach(function (a) {
+      var s = statut(a.id), card = el('article', 'esp-dossier');
+      var h = el('div', 'row'); h.appendChild(el('h3', null, a.nom + ' · ' + a.secteur)); h.appendChild(el('span', 'st ' + STATUTS[s][1], STATUTS[s][0]));
+      card.appendChild(h);
+      if (s === 'attente') { card.appendChild(el('p', 'esp-muted', 'Un autre abonné s’est positionné en premier. Votre avocat vous prévient si le dossier se libère.')); main.appendChild(card); return; }
+      var law = el('div', 'esp-lawyer'); law.appendChild(el('span', 'av', 'AV'));
+      var lt = el('span'); lt.appendChild(el('b', null, 'Votre avocat référent')); lt.appendChild(el('small', null, 'Vous rappelle sous 24 heures')); law.appendChild(lt);
+      card.appendChild(law);
+      var ol = el('ol', 'esp-tl');
+      ETAPES.forEach(function (e, i) {
+        var li = el('li', i === 0 ? 'ok' : (i === 1 ? 'now' : ''));
+        li.appendChild(el('span', 'dot', i === 0 ? '✓' : ''));
+        var tx = el('span'); tx.appendChild(el('b', null, e[0]));
+        var sub = i === 0 ? 'Le ' + dateFr(esp.choix[a.id].date) + ' · ' + e[1] : (i === 1 ? 'En cours · ' + e[1] : (i === 5 && /^J\+/.test(a.delai) ? 'Date limite : ' + a.delai : e[1]));
+        tx.appendChild(el('small', null, sub)); li.appendChild(tx); ol.appendChild(li);
+      });
+      card.appendChild(ol);
+      main.appendChild(card);
+    });
+  }
+
+  var CRITERES = [['secteurs', 'Secteurs recherchés'], ['zone', 'Zone géographique'], ['ca', 'Chiffre d’affaires'], ['effectif', 'Effectif'], ['fonds', 'Fonds propres mobilisables'], ['actifs', 'Ce que vous voulez reprendre'], ['exclus', 'Critères éliminatoires']];
+  function critVal(k) { var v = esp.profil[k]; return Array.isArray(v) ? v.join(', ') : (v || '—'); }
+
+  function viewProfil(editing) {
+    head('Mon profil', 'Ces critères servent au tri et au score de chaque alerte.');
+    var who = el('div', 'esp-box');
+    who.appendChild(el('h3', null, 'Vos coordonnées'));
+    var dl = el('dl', 'esp-dl');
+    [['Nom', (esp.profil.prenom || '') + ' ' + (esp.profil.nom || '')], ['E-mail', esp.profil.email], ['Société', esp.profil.societe], ['Fonction', esp.profil.fonction], ['Téléphone', esp.profil.tel || '—'], ['Profil', esp.profil.profil]].forEach(function (r) {
+      var d = el('div'); d.appendChild(el('dt', null, r[0])); d.appendChild(el('dd', null, r[1] || '—')); dl.appendChild(d);
+    });
+    who.appendChild(dl);
+    who.appendChild(el('p', 'esp-note', 'Pour modifier vos coordonnées, écrivez à votre avocat référent.'));
+    var crit = el('div', 'esp-box');
+    var ch = el('div', 'row'); ch.appendChild(el('h3', null, 'Vos critères de reprise'));
+    if (!editing) ch.appendChild(btn('Modifier mes critères', 'esp-link', function () { main.textContent = ''; viewProfil(true); }));
+    crit.appendChild(ch);
+    if (!editing) {
+      var dl2 = el('dl', 'esp-dl');
+      CRITERES.forEach(function (c) { var d = el('div'); d.appendChild(el('dt', null, c[1])); d.appendChild(el('dd', null, critVal(c[0]))); dl2.appendChild(d); });
+      crit.appendChild(dl2);
+    } else {
+      var f = el('form', 'esp-form'); f.noValidate = true;
+      CRITERES.forEach(function (c) {
+        var wrap = el('div', 'field'); var id = 'ep-' + c[0];
+        var lab = el('label', null, c[1] + (c[0] === 'actifs' || c[0] === 'exclus' ? '' : ' *')); lab.htmlFor = id;
+        var inp = el('input'); inp.id = id; inp.name = c[0]; inp.value = critVal(c[0]) === '—' ? '' : critVal(c[0]);
+        wrap.appendChild(lab); wrap.appendChild(inp); f.appendChild(wrap);
+      });
+      f.appendChild(el('p', 'esp-note', 'Séparez les secteurs par des virgules.'));
+      var act = el('div', 'esp-form-act');
+      act.appendChild(btn('Annuler', 'btn btn-ghost', function () { main.textContent = ''; viewProfil(false); }));
+      var save = el('button', 'btn', 'Enregistrer'); save.type = 'submit'; act.appendChild(save);
+      f.appendChild(act);
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var upd = {}, bad = null;
+        CRITERES.forEach(function (c) {
+          var inp = f.elements[c[0]], v = inp.value.trim(), w = inp.closest('.field'), old = w.querySelector('.err'); if (old) old.remove();
+          var req = c[0] !== 'actifs' && c[0] !== 'exclus';
+          w.classList.toggle('invalid', req && !v);
+          if (req && !v) { w.appendChild(el('span', 'err', 'Ce champ est obligatoire.')); if (!bad) bad = inp; }
+          upd[c[0]] = c[0] === 'secteurs' ? v.split(',').map(function (x) { return x.trim(); }).filter(Boolean) : v;
+        });
+        if (bad) { bad.focus(); return; }
+        save.disabled = true; save.textContent = 'Enregistrement…';
+        try { if (esp.mode === 'real') await store.db.doc('signups/' + esp.uid).update(upd); }
+        catch (err) { save.disabled = false; save.textContent = 'Enregistrer'; flash('Vos critères n’ont pas pu être enregistrés. Réessayez dans un instant.'); return; }
+        Object.assign(esp.profil, upd); renderApp(); flash('Critères enregistrés. Les prochaines alertes en tiennent compte.');
+      });
+      crit.appendChild(f);
+    }
+    main.appendChild(crit); main.appendChild(who);
+  }
+
+  function viewPreferences() {
+    head('Préférences d’alerte', 'Choisissez comment et quand vous êtes prévenu.');
+    var how = el('div', 'esp-box');
+    how.appendChild(el('h3', null, 'Comment vous recevez vos alertes'));
+    var ol = el('ol', 'esp-how');
+    ['Chaque matin à 7 h, l’agent lit le Bodacc et les appels d’offres des administrateurs, puis compare chaque annonce à votre profil.',
+     'Un avocat du cabinet relit la fiche avant tout envoi.',
+     'Vous êtes prévenu par les canaux choisis ci-dessous, avec l’essentiel : secteur, zone, taille, date limite.',
+     'La fiche complète, les pièces et la data room restent ici, dans votre espace sécurisé.'].forEach(function (t) { ol.appendChild(el('li', null, t)); });
+    how.appendChild(ol);
+    var prefs = Object.assign({ email: true, sms: false, app: true, frequence: 'immediat' }, esp.profil.preferences || {});
+    var box = el('form', 'esp-box esp-prefs'); box.noValidate = true;
+    box.appendChild(el('h3', null, 'Vos canaux'));
+    [['email', 'E-mail', esp.profil.email || ''], ['sms', 'SMS', esp.profil.tel ? esp.profil.tel : 'Ajoutez un numéro auprès de votre avocat'], ['app', 'Notification de l’application', 'Sur votre téléphone']].forEach(function (c) {
+      var lab = el('label', 'esp-check'); var i = el('input'); i.type = 'checkbox'; i.name = c[0]; i.checked = !!prefs[c[0]];
+      if (c[0] === 'sms' && !esp.profil.tel) { i.disabled = true; i.checked = false; }
+      var tx = el('span'); tx.appendChild(el('b', null, c[1])); tx.appendChild(el('small', null, c[2]));
+      lab.appendChild(i); lab.appendChild(tx); box.appendChild(lab);
+    });
+    box.appendChild(el('h3', null, 'Fréquence'));
+    [['immediat', 'Dès qu’une alerte est relue par l’avocat', 'Recommandé : les délais de dépôt des offres sont courts'], ['quotidien', 'Un résumé chaque matin à 8 h', 'Toutes les alertes de la veille en un seul message']].forEach(function (c) {
+      var lab = el('label', 'esp-check'); var i = el('input'); i.type = 'radio'; i.name = 'frequence'; i.value = c[0]; i.checked = prefs.frequence === c[0];
+      var tx = el('span'); tx.appendChild(el('b', null, c[1])); tx.appendChild(el('small', null, c[2]));
+      lab.appendChild(i); lab.appendChild(tx); box.appendChild(lab);
+    });
+    var save = el('button', 'btn', 'Enregistrer mes préférences'); save.type = 'submit'; box.appendChild(save);
+    box.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var p = { email: box.elements.email.checked, sms: box.elements.sms.checked, app: box.elements.app.checked, frequence: box.querySelector('input[name=frequence]:checked').value };
+      if (!p.email && !p.sms && !p.app) { flash('Choisissez au moins un canal pour ne manquer aucune alerte.'); return; }
+      save.disabled = true;
+      try { if (esp.mode === 'real') await store.db.doc('signups/' + esp.uid).update({ preferences: p }); }
+      catch (err) { save.disabled = false; flash('Vos préférences n’ont pas pu être enregistrées. Réessayez dans un instant.'); return; }
+      esp.profil.preferences = p; renderApp(); flash('Préférences enregistrées.');
+    });
+    main.appendChild(box); main.appendChild(how);
+  }
+
+  route();
+})();
+</script>
+
+</body></html>
